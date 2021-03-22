@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="icon" href="./media/imgs/logo1.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto+Mono&display=swap"
       rel="stylesheet"
     />
     <link
@@ -20,12 +21,23 @@
       crossorigin="anonymous"
     />
 
-    <title>s e b r o d</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <title>SEBRODRIGUEZ</title>
   </head>
+  <div class="loadingScreen" id="loadingScreen">
+    <div class="loadingContent">
+      <img class="rotate" src="/media/imgs/logo1.png" alt="" />
+      <h1 id="loading">Loading</h1>
+    </div>
+  </div>
   <body>
     <nav id="nav">
       <a href="#" class="navbar-brand">
-        <img src="/media/imgs/logo_white.png" alt="" />
+        <img src="/media/imgs/logo_white.png" alt="logo SebRodriguez" />
         <div class="navbrand-text">
           <p>SEB<span>RODRIGUEZ</span></p>
         </div>
@@ -34,65 +46,225 @@
 
       <div class="navbar-div" id="navbar-div">
         <ul>
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About Me</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="#" id="home">Home</a></li>
+          <li><a href="#" id="about">About Me</a></li>
+          <li><a href="#" id="projects">Projects</a></li>
+          <li><a href="#" id="contact">Contact</a></li>
         </ul>
       </div>
 
       <div class="navbar-socials" id="navbar-socials">
         <ul>
           <li>
-            <a href="#" class="fab fa-github"></a>
+            <a href="https://github.com/sebaschr" class="fab fa-github"></a>
           </li>
           <li>
-            <a href="#" class="fab fa-linkedin"></a>
+            <a href="https://www.linkedin.com/in/sebaschr/" class="fab fa-linkedin"></a>
           </li>
-          <li>
-            <a id="english" href="#">EN</a>
+          <li class="lang-sec" onclick="setLanguage('en')">
+            <a class="lang" href="#">EN</a>
           </li>
-          <li>
-            <a id="spanish" href="#">ES</a>
+          <li class="lang-sec" onclick="setLanguage('es')">
+            <a class="lang" href="#">ES</a>
           </li>
         </ul>
       </div>
     </nav>
 
     <main>
-      <video playsinline autoplay muted loop poster="bg.jpg" id="bgvid">
-        <source src="/media/videos/timelapse.mp4" type="video/mp4" />
-      </video>
-
-      <section class="banner">
-        <div>
-          <img src="/media/imgs/logo1.png" alt="" />
-          <h1><span>SEB</span>RODRIGUEZ</h1>
+      <section class="container banner">
+        <div class="banner-content typewriter">
+          <h1>
+            <a id="typewrite" href="" class="typewrite" data-period="1000">
+              <span class="wrap"></span>
+            </a>
+          </h1>
         </div>
-        <div class="v-line"></div>
-        <div>
-          <p>SITE UNDER CONSTRUCTION</p>
-        </div>
+        <video
+          alt=""
+          autoplay
+          loop
+          muted
+          class="banner__video"
+          poster="https://pawelgrzybek.com/photos/2015-12-06-codepen.jpg"
+        >
+          <source src="/media/videos/timelapse.mp4" type="video/webm" />
+        </video>
       </section>
 
-      <section class="about">
-        <div class="about-text">
-          <h2>About Me</h2>
+      <section class="container about-me">
+        <div class="about-image">
+          <img src="/media/imgs/logo1.png" alt="" />
+          <h2>Sebastian</h2>
+          <p>Costa Rica</p>
+        </div>
+        <div class="v-line"></div>
+        <div class="about-desc">
           <p>
-            Hello, I am Seb. I am a junior web developer, from Costa Rica,
-            looking for a chance to start my developing career. I am passionate
-            about technology and learning.
+            Hello my name is Sebastian and I am a bilingual junior web
+            developer. Currently looking for an opportunity to start my career
+            in development. In the future, I'd love to focus on mobile apps and
+            UI/UX design.
+          </p>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+            assumenda earum facere, libero inventore vitae cumque itaque dolorem
+            tempora consequuntur doloribus minus temporibus ad cum nesciunt
+            veritatis nostrum perferendis quibusdam.
           </p>
         </div>
-        <div class="v-line"></div>
-        <div>
-          <img src="/media/imgs/dev.gif" alt="" />
-        </div>
       </section>
 
-      <section class="skills">
-        <h1>Skills</h1>
+      <section class="container skills">
+        <h1>Technologies I have used</h1>
+
+        <div class="skills-divs">
+          <div title="HTML">
+            <img src="/media/imgs/icons/htmlLogo.png" alt="" />
+          </div>
+          <div title="CSS">
+            <img src="/media/imgs/icons/CSSLogo.png" alt="" />
+          </div>
+          <div title="Sass">
+            <img src="/media/imgs/icons/sassLogo.png" alt="" />
+          </div>
+          <div title="JavaScript">
+            <img src="/media/imgs/icons/jsLogo.png" alt="" />
+          </div>
+          <div title="React">
+            <img src="/media/imgs/icons/reactLogo.png" alt="" />
+          </div>
+          <div title="Angular">
+            <img src="/media/imgs/icons/angularLogo.png" alt="" />
+          </div>
+          <div title="nodeJS">
+            <img src="/media/imgs/icons/nodeJSLogo.png" alt="" />
+          </div>
+          <div title="mongoDB / Express">
+            <img src="/media/imgs/icons/mongoDBLogo.png" alt="" />
+          </div>
+          <div title="php">
+            <img src="/media/imgs/icons/phpLogo.png" alt="" />
+          </div>
+          <div title="Typescript">
+            <img src="/media/imgs/icons/tsLogo.png" alt="" />
+          </div>
+          <div title="MySQL">
+            <img src="/media/imgs/icons/SQL.png" alt="" />
+          </div>
+          <!-- <div title="Angular"><img src="/media/imgs/icons/angularLogo.png" alt=""></div> -->
+        </div>
+
+       
+
       </section>
+      
+      <section class="skills-projects">
+          <div class="skills-project">
+            <div class="project-desc">
+              <p>Example of a project</p>
+              <h3>Pizza Building Game</h3>
+              <p class="project-text">
+                This project was part of a college course. With two of my
+                classmates we built an app within 10-15 weeks with little to no
+                guide in Angular. 
+              </p>
+
+             <p class="project-text">
+                The main goal of the game is to build as many pizzas as possible without wasting any ingredients and having earnings. All pizzas are made up of 4 ingredients, which are split up evenly between the teammates (regardless of the number) once a pizza is taken out of the queue. You can prepare the ingredients by clicling thrice on it and then you can mix them up to build the pizza.The results of each split (in the teams) are shown once the round ends in graphs. 
+              </p>
+              <p class="project-text">
+                I was in charge of building the admin settings, the game itself, quality assurance, documentation and fixing bugs.
+              </p>
+              <span>Stack:</span>
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">Firebase</span>
+            </div>
+
+            <div class="projectmedia">
+              <img src="/media/imgs/coding.gif" alt="">
+              <div>
+                <button>View on Github</button>
+              <button>Live Demo</button>
+              </div>
+
+            </div>
+
+           
+
+            </div>
+          </div>
+
+          <div class="skills-project dark-project">
+            <div class="project-desc">
+              <p>Example of a project</p>
+              <h3>Pizza Building Game</h3>
+              <p class="project-text">
+                This project was part of a college course. With two of my
+                classmates we built an app within 10-15 weeks with little to no
+                guide in Angular. Each pizza was made up of different
+                ingredients which were split between the users of a team. The
+                results of were shown in graphs and saved in the database (per
+                team).
+              </p>
+
+              <p class="project-text">
+                This project was part of a college course. With two of my
+                classmates we built an app within 10-15 weeks with little to no
+                guide in Angular. Each pizza was made up of different
+                ingredients which were split between the users of a team. The
+                results of were shown in graphs and saved in the database (per
+                team).
+              </p>
+              <span>Stack:</span>
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">Firebase</span>
+            </div>
+
+            <div class="projectmedia">
+              <img src="/media/imgs/coding.gif" alt="">
+              <div>
+                <button>View on Github</button>
+              <button>Live Demo</button>
+              </div>
+
+            </div>
+
+           
+
+            </div>
+          </div>
+        </section>
+
+        <section class="container form-tab">
+            <div class="form-desc">
+              <h1>Welcome to the jungle</h1>
+              <p>Any doubt, inquiry or comment you want to make me, please do so by filling this form. </p>
+              <p>I will reply to all e-mails within 24-48 hours</p>
+            </div>
+
+            <div class="form-contact">
+              <form>
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Name">
+            
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="Email" placeholder="E-mail">
+            
+                <label for="fsubject">Subject</label>
+                <input type="text" id="fsubject" name="Subject" placeholder="Subject">
+
+                <label for="fcomments">Comments</label>
+                <textarea name="Comments" id="fcomments" ></textarea>
+              
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+        </section>
+
+
+        
     </main>
 
     <script
