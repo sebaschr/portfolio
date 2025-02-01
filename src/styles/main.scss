@@ -309,4 +309,8 @@ body,
 .photo {
   border: solid 5px white;
   border-radius: 0;
+
+  &:hover {
+    cursor: default;
+  }
 }
