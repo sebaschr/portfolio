@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+# Uncomment the next line once you have a sitemap to guide crawlers
+# Sitemap: https://www.yoursite.com/sitemap.xml
