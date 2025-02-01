@@ -1,0 +1,312 @@
+$white: #fff;
+$black: #000;
+$dimblack: rgba(0, 0, 0, 0.55);
+$primary: #a80000;
+
+$min-tablet: 768px;
+$min-desktop: 1024px;
+
+* {
+  font-family: 'Arial', 'Courier New', Courier, monospace !important;
+}
+
+html,
+body,
+#root {
+  background-color: $primary;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  min-width: 320px;
+}
+
+// Scrollbar Styling
+*::-webkit-scrollbar {
+  width: 0.15rem;
+  height: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $white;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 1.25rem;
+  border: 0.25rem solid transparent;
+}
+
+// Layout Wrappers
+.wrapper {
+  max-width: 1280px;
+  margin: auto;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 90%;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+
+  & > div {
+    margin: 0.5rem 0;
+    width: calc(100% - 20px);
+  }
+
+  @media (min-width: $min-desktop) {
+    flex-direction: row;
+
+    & > div {
+      width: 100%;
+      margin-left: 2rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &-two-thirds {
+      flex: 2 1 0%;
+      min-width: calc((100% / 3 * 2) - 2rem);
+    }
+
+    & > div:not(.row-child-grow) {
+      flex: 1 1 0%;
+    }
+  }
+}
+
+// Banner
+.banner {
+  color: $white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: calc(90% - 20px);
+  margin: auto;
+  border: solid 10px $white;
+  border-radius: 50px;
+  overflow: hidden;
+  height: clamp(35rem, 40vw, 45rem);
+
+  @media (min-width: $min-desktop) {
+    width: 95%;
+    margin: 0.5rem auto;
+  }
+
+  &--card {
+    height: 28rem;
+  }
+
+  &-image,
+  &-overlay,
+  &-image-hover {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  &-overlay {
+    background-color: $dimblack;
+  }
+
+  &-title {
+    font-size: clamp(5.25rem, 6vw, 11.25rem);
+    line-height: clamp(4.25rem, 5vw, 9.25rem);
+    font-weight: 900;
+    z-index: 2;
+    text-align: center;
+  }
+
+  &-subtext {
+    font-size: 1rem;
+    font-weight: 400;
+    z-index: 2;
+    text-align: center;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  &-secondary {
+    & > h2 {
+      font-size: clamp(2rem, 3vw, 4rem);
+      line-height: clamp(2rem, 2.5vw, 3.5rem);
+      text-align: left;
+      margin-left: 1rem;
+    }
+  }
+}
+
+// Hide Image on Hover
+.hide-img-on-hover {
+  opacity: 1;
+
+  & > .banner-image {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  & > .banner-image-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & > .banner-image {
+      opacity: 0;
+    }
+
+    & > .banner-image-hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Section Cards
+.section-card {
+  &-white {
+    background-color: $white;
+    color: $primary !important;
+  }
+
+  & > .banner-title {
+    font-size: clamp(5.5rem, 6vw, 8.5rem);
+    word-break: break-word;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  &-vertical {
+    position: relative;
+
+    & > .banner-title {
+      position: absolute;
+      left: -5rem;
+      bottom: clamp(7rem, 6vw, 7rem);
+      transform: rotate(90deg);
+      font-size: 4rem;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Sections
+.section {
+  height: 30rem;
+
+  & > .banner-title {
+    font-size: clamp(5rem, 6vw, 8rem);
+    line-height: clamp(4rem, 5vw, 7rem);
+    max-width: 90%;
+    word-break: break-word;
+    text-transform: uppercase;
+  }
+}
+
+// Mobile Adjustments
+.mobile-2 {
+  @media (min-width: $min-tablet) and (max-width: $min-desktop) {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > .banner:not(.grow-mobile) {
+      width: calc(50% - 1.75rem);
+    }
+  }
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #a80000;
+  color: white;
+  text-align: center;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.footer-button:hover,
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+.page-title {
+  color: white;
+  font-size: 5rem;
+  line-height: 4.5rem;
+  text-transform: lowercase;
+  width: 90%;
+  margin: auto;
+  word-break: break-all;
+  font-weight: 900;
+  text-align: right;
+  margin-bottom: 1rem;
+
+  @media (min-width: $min-desktop) {
+    width: 85%;
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 10rem;
+    line-height: 8.5rem;
+  }
+}
+
+.max-4 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: flex-start;
+  padding: 0;
+
+  & > div {
+    max-width: calc(100% - 18px);
+    margin: 0.25rem;
+    padding: 0;
+    flex: auto !important;
+
+    @media (min-width: $min-tablet) {
+      max-width: calc(33% - 18px);
+    }
+
+    @media (min-width: $min-desktop) {
+      max-width: calc(25% - 18px);
+    }
+  }
+}
+
+.photo {
+  border: solid 5px white;
+  border-radius: 0;
+}
