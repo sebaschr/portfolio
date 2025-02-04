@@ -1,15 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
 
 type BannerProps = {
     text?: string;
     subtext?: string;
     backgroundImage?: string;
     backgroundImageHover?: string;
+    backgroundVideoLocalSrc?: string;
     className?: string;
     hideOverlay?: boolean;
     isCard?: boolean;
-    onClick?: () => void;
+    redirectToPage?: string
 };
 
 export const Banner: React.FC<BannerProps> = ({
@@ -20,15 +22,20 @@ export const Banner: React.FC<BannerProps> = ({
     className = '',
     hideOverlay = false,
     isCard = false,
-    onClick
+    redirectToPage,
+    backgroundVideoLocalSrc
 }) => {
+
+    const navigate = useNavigate();
     return (
         <div className={clsx('banner', className, { 'banner--card': isCard, 'hide-img-on-hover': backgroundImageHover })}
-            onClick={onClick}>
+            onClick={() => {
+                redirectToPage ? navigate(redirectToPage) : null
+            }}>
             {backgroundImage && <img src={backgroundImage} alt="Banner background" className="banner-image" />}
             {backgroundImageHover && <img src={backgroundImageHover} alt="Banner hover background" className="banner-image-hover" />}
-
-            {!hideOverlay && backgroundImage && <div className="banner-overlay" />}
+            {backgroundVideoLocalSrc && <video className="banner-video" src={backgroundVideoLocalSrc} autoPlay muted controls={false} loop />}
+            {!hideOverlay && (backgroundImage || backgroundVideoLocalSrc) && <div className="banner-overlay" />}
             {text && <h2 className="banner-title">{text}</h2>}
             {subtext && <p className="banner-subtext">{subtext}</p>}
         </div>

@@ -20,9 +20,9 @@ const About = () => {
       />
 
       <section className="row mobile-2">
-        <Banner className="section-card section-card-white" isCard text="Photos" onClick={() => navigate('/photos')} />
+        <Banner className="section-card section-card-white" isCard text="Photos" redirectToPage='/photos' />
 
-        <Banner className="section-card grow-mobile" isCard text="MGZ" onClick={() => navigate('/mgz')} />
+        <Banner className="section-card grow-mobile" isCard text="MGZ" redirectToPage='/mgz' />
       </section>
 
     </div>

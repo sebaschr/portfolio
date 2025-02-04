@@ -1,4 +1,5 @@
 import { Banner } from './index';
+import { images } from '../services/data';
 
 export const Photos = () => {
 
@@ -6,79 +7,17 @@ export const Photos = () => {
 
     <div className="wrapper">
       <section className="row mobile-2 max-4">
-        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />
-        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />
-        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />
-        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />
-        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />        <Banner
-          className="section-card photo"
-          isCard
-          backgroundImage="https://i.ytimg.com/vi/4udcxEUqrUU/maxresdefault.jpg"
-        />
+        {images.map((img) => {
+          return (
+            <Banner
+              className="section-card photo"
+              isCard
+              backgroundImage={img.src}
+            />
+          )
+        })}
+
+
       </section>
 
     </div>
