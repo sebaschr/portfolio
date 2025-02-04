@@ -1,10 +1,8 @@
 import { TextSection, Banner } from './index';
 import PortraitSvg from '../assets/icons/portrait.svg';
-import { useNavigate } from 'react-router-dom';
 
 const About = () => {
 
-  const navigate = useNavigate();
 
   return (
 
