@@ -34,7 +34,7 @@ export const Banner: React.FC<BannerProps> = ({
             }}>
             {backgroundImage && <img src={backgroundImage} alt="Banner background" className="banner-image" />}
             {backgroundImageHover && <img src={backgroundImageHover} alt="Banner hover background" className="banner-image-hover" />}
-            {backgroundVideoLocalSrc && <video className="banner-video" src={backgroundVideoLocalSrc} autoPlay muted controls={false} loop />}
+            {backgroundVideoLocalSrc && <video className="banner-video" src={backgroundVideoLocalSrc} controls={false} autoPlay loop muted playsInline id="video-background" poster="images/poster.jpg" />}
             {!hideOverlay && (backgroundImage || backgroundVideoLocalSrc) && <div className="banner-overlay" />}
             {text && <h2 className="banner-title">{text}</h2>}
             {subtext && <p className="banner-subtext">{subtext}</p>}

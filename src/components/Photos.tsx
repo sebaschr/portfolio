@@ -13,6 +13,7 @@ export const Photos = () => {
               className="section-card photo"
               isCard
               backgroundImage={img.src}
+              hideOverlay
             />
           )
         })}
