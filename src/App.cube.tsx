@@ -1,36 +1,34 @@
-// src/App.tsx
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cube from './components/Cube/Cube';
-
-const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
 const WhatsNext = lazy(() => import('./pages/WhatsNext'));
 const Extra = lazy(() => import('./pages/Extra'));
 
-export default function App() {
+export default function AppCube() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Cube />}>
-          {/* front face: your existing HomePage component */}
           <Route
             index
+            path="whats-next"
             element={
               <Suspense
                 fallback={<div style={{ padding: 20 }}>Loading...</div>}
               >
-                <Home />
+                <WhatsNext />
               </Suspense>
             }
-          />
-          {/* other faces (lazy loaded) */}
+          />{' '}
           <Route
             path="about"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div style={{ padding: 20 }}>Loading...</div>}
+              >
                 <About />
               </Suspense>
             }
@@ -38,7 +36,9 @@ export default function App() {
           <Route
             path="projects"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div style={{ padding: 20 }}>Loading...</div>}
+              >
                 <Projects />
               </Suspense>
             }
@@ -46,7 +46,9 @@ export default function App() {
           <Route
             path="contact"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div style={{ padding: 20 }}>Loading...</div>}
+              >
                 <Contact />
               </Suspense>
             }
@@ -54,7 +56,9 @@ export default function App() {
           <Route
             path="whats-next"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div style={{ padding: 20 }}>Loading...</div>}
+              >
                 <WhatsNext />
               </Suspense>
             }
@@ -62,7 +66,9 @@ export default function App() {
           <Route
             path="extra"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense
+                fallback={<div style={{ padding: 20 }}>Loading...</div>}
+              >
                 <Extra />
               </Suspense>
             }

@@ -1,4 +1,3 @@
-export * from './Navbar';
 export * from './About';
 export * from './Banner';
 export * from './Footer';

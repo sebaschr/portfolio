@@ -1,11 +1,9 @@
 import { Banner } from './index';
-import video from '../assets/videos/OCEAN LOOP.mp4'
+import video from '../assets/videos/OCEAN LOOP.mp4';
 
 export const HomePage = () => {
   return (
-
     <div className="wrapper">
-
       <section className="row">
         <Banner
           text="hi i'm seb"
@@ -29,7 +27,12 @@ export const HomePage = () => {
       </section>
 
       <section className="row mobile-2">
-        <Banner className="section-card section-card-white" isCard text="projects" redirectToPage={'/projects'} />
+        <Banner
+          className="section-card section-card-white"
+          isCard
+          text="projects"
+          redirectToPage={'/projects'}
+        />
         <Banner
           className="section-card section-card-vertical"
           isCard
@@ -37,17 +40,31 @@ export const HomePage = () => {
           backgroundImage="https://i.pinimg.com/736x/e4/db/8a/e4db8a28ec9b9d8c9d9e25efafcba7b9.jpg"
           redirectToPage={'/about'}
         />
-        <Banner className="section-card grow-mobile" isCard text="others" redirectToPage={'/mgz'} />
+        <Banner
+          className="section-card grow-mobile"
+          isCard
+          text="others"
+          redirectToPage={'/mgz'}
+        />
       </section>
 
       <section className="row">
-        <Banner text="Photography" backgroundImage="https://i.imgur.com/DOdqEsB.jpeg" className="section" redirectToPage={'/photos'} />
+        <Banner
+          text="Photography"
+          backgroundImage="https://i.imgur.com/DOdqEsB.jpeg"
+          className="section"
+          redirectToPage={'/photos'}
+        />
       </section>
 
       <section className="row">
-        <Banner text="Jumping Mice" backgroundImage="https://i.imgur.com/1SCaXF2.jpeg" className="section section-left" redirectToPage={'/mgz'} />
+        <Banner
+          text="Jumping Mice"
+          backgroundImage="https://i.imgur.com/1SCaXF2.jpeg"
+          className="section section-left"
+          redirectToPage={'/mgz'}
+        />
       </section>
     </div>
-
   );
 };
