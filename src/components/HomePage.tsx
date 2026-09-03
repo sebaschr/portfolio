@@ -12,8 +12,6 @@ export const HomePage = () => {
         linkText="See Our Work"
         linkURL="/projects"
         heroVideo={video}
-        mode="simple"
-        wave
       />
 
       <Marquee text="Web Design ✦ Branding ✦ Development ✦ Digital Strategy ✦" />
