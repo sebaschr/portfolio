@@ -1,16 +1,15 @@
-import { Banner } from './index';
+import { Banner, HeroBanner } from './index';
 import video from '../assets/videos/OCEAN LOOP.mp4';
 
 export const HomePage = () => {
   return (
     <div className="wrapper">
-      <section className="row">
-        <Banner
-          text="hi i'm seb"
-          subtext="developer / designer / creative"
-          backgroundVideoLocalSrc={video}
-        />
-      </section>
+      <HeroBanner
+        title="hi i'm seb"
+        description="developer / designer / creative"
+        heroVideo={video}
+        mode="simple"
+      />
 
       <section className="row mobile-2">
         <Banner

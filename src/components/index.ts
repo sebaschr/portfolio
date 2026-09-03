@@ -1,6 +1,7 @@
 export * from './Navbar';
 export * from './About';
 export * from './Banner';
+export * from './HeroBanner';
 export * from './Footer';
 export * from './HomePage';
 export * from './JumpingMice';
