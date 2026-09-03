@@ -1,4 +1,4 @@
-import { PageWrapper, HeroBanner, TextSection, Banner } from './index';
+import { PageWrapper, HeroBanner, Marquee, TextSection, Banner } from './index';
 import video from '../assets/videos/OCEAN LOOP.mp4';
 import CodeSvg from '../assets/icons/code.svg';
 
@@ -15,6 +15,9 @@ export const HomePage = () => {
         mode="simple"
         wave
       />
+
+      <Marquee text="Web Design ✦ Branding ✦ Development ✦ Digital Strategy ✦" />
+
       <PageWrapper>
         <TextSection
           eyebrow="What We Do"
@@ -24,9 +27,57 @@ export const HomePage = () => {
         />
 
         <section className="row mobile-2">
-          <Banner className="section-card section-card-white" isCard text="Web Design" />
-          <Banner className="section-card" isCard text="Development" />
-          <Banner className="section-card grow-mobile" isCard text="Branding" />
+          <Banner className="section-card section-card-compact section-card-white" isCard text="Web Design" />
+          <Banner className="section-card section-card-compact" isCard text="Development" />
+          <Banner className="section-card section-card-compact grow-mobile" isCard text="Branding" />
+        </section>
+
+        <h1 className="page-title">selected work</h1>
+
+        <section className="row mobile-2">
+          <Banner
+            className="section-card"
+            isCard
+            backgroundImage="https://i.imgur.com/R8kDLOK.jpg"
+            text="Lumen & Co"
+            subtext="Brand Identity & Web Design"
+            redirectToPage="/projects"
+          />
+          <Banner
+            className="section-card"
+            isCard
+            backgroundImage="https://i.imgur.com/qPW75Ok.jpg"
+            text="Northside Coffee"
+            subtext="E-Commerce Development"
+            redirectToPage="/projects"
+          />
+        </section>
+        <section className="row mobile-2">
+          <Banner
+            className="section-card"
+            isCard
+            backgroundImage="https://i.imgur.com/o2SDuvI.jpg"
+            text="Verve Studio"
+            subtext="Digital Campaign"
+            redirectToPage="/projects"
+          />
+          <Banner
+            className="section-card"
+            isCard
+            backgroundImage="https://i.imgur.com/3fJ6fJa.jpg"
+            text="Aster Finance"
+            subtext="Product Design"
+            redirectToPage="/projects"
+          />
+        </section>
+
+        <section className="row">
+          <Banner
+            text="Let's Build Something Bold."
+            subtext="Get in touch"
+            className="section"
+            redirectToPage="/projects"
+          />
         </section>
       </PageWrapper>
     </>

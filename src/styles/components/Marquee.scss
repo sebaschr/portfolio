@@ -1,0 +1,35 @@
+@use '../main' as *;
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background-color: $dark-red;
+  border-top: 2px solid $white;
+  border-bottom: 2px solid $white;
+  padding: 0.75rem 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  color: $cream;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

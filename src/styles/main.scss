@@ -194,6 +194,13 @@ body,
     text-align: left;
   }
 
+  // For 3-up rows, where the default size above is too large for the
+  // narrower card to fit longer/multi-word labels without breaking mid-word.
+  &-compact > .banner-title {
+    font-size: clamp(1.75rem, 4vw, 2.65rem);
+    line-height: 1.1;
+  }
+
   &-vertical {
     position: relative;
 
@@ -221,6 +228,23 @@ body,
     max-width: 90%;
     word-break: break-word;
     text-transform: uppercase;
+  }
+}
+
+// Below $min-tablet the clamp() minimums above never shrink enough for the
+// viewport, so long/multi-word titles end up breaking mid-word instead of
+// at word boundaries.
+@media (max-width: $min-tablet) {
+  .banner-title {
+    font-size: clamp(2rem, 10vw, 5.25rem);
+  }
+
+  .section-card > .banner-title {
+    font-size: clamp(2rem, 9vw, 5.5rem);
+  }
+
+  .section > .banner-title {
+    font-size: clamp(2rem, 9vw, 5rem);
   }
 }
 
