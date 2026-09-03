@@ -2,6 +2,7 @@
 
 /* Basic styling */
 .navbar {
+  box-sizing: border-box;
   position: static;
   background-color: $primary;
   padding: 1.5rem 1rem;
