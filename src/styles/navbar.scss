@@ -2,13 +2,24 @@
 
 /* Basic styling */
 .navbar {
+  position: static;
   background-color: $primary;
   padding: 1.5rem 1rem;
-  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+}
+
+body.has-hero .navbar {
+  position: absolute;
+  background-color: transparent;
+}
+
+.navbar--pinned {
+  position: fixed !important;
+  background-color: $primary !important;
 }
 
 .nav-container {
@@ -17,8 +28,11 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+
   @media (min-width: 1024px) {
     max-width: 90%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
   }
 }
 
@@ -28,6 +42,10 @@
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
+
+  @media (min-width: 1024px) {
+    justify-self: start;
+  }
 }
 
 /* Menu toggle button */
@@ -54,6 +72,10 @@
   display: flex;
   list-style: none;
   gap: 1.5rem;
+
+  @media (min-width: 1024px) {
+    justify-self: center;
+  }
 }
 
 .nav-links li {
@@ -73,6 +95,23 @@
   opacity: 0.7;
 }
 
+/* Email icon (desktop only) */
+.nav-email {
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    color: white;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
 /* Mobile Styles */
 @media screen and (max-width: 1024px) {
   .menu-toggle {
@@ -83,7 +122,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #a80000;
+    background-color: $primary;
     width: calc(100% - 2rem);
     flex-direction: column;
     align-items: center;
@@ -120,9 +159,6 @@
   }
   .nav-links.active li:nth-child(3) {
     animation-delay: 0.3s;
-  }
-  .nav-links.active li:nth-child(4) {
-    animation-delay: 0.4s;
   }
 
   @keyframes fadeIn {

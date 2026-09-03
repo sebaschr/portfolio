@@ -47,6 +47,15 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
     if (videoRef.current) videoRef.current.muted = isMuted;
   }, [isMuted]);
 
+  // Lets the Navbar know it should float transparently over this hero
+  // instead of sitting in normal flow.
+  useEffect(() => {
+    document.body.classList.add('has-hero');
+    return () => {
+      document.body.classList.remove('has-hero');
+    };
+  }, []);
+
   const handleTogglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
