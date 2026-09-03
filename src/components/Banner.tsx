@@ -11,7 +11,8 @@ type BannerProps = {
     className?: string;
     hideOverlay?: boolean;
     isCard?: boolean;
-    redirectToPage?: string
+    redirectToPage?: string;
+    onClick?: () => void;
 };
 
 export const Banner: React.FC<BannerProps> = ({
@@ -23,6 +24,7 @@ export const Banner: React.FC<BannerProps> = ({
     hideOverlay = false,
     isCard = false,
     redirectToPage,
+    onClick,
     backgroundVideoLocalSrc
 }) => {
 
@@ -30,7 +32,8 @@ export const Banner: React.FC<BannerProps> = ({
     return (
         <div className={clsx('banner', className, { 'banner--card': isCard, 'hide-img-on-hover': backgroundImageHover })}
             onClick={() => {
-                if (redirectToPage) navigate(redirectToPage);
+                if (onClick) onClick();
+                else if (redirectToPage) navigate(redirectToPage);
             }}>
             {backgroundImage && <img src={backgroundImage} alt="Banner background" className="banner-image" />}
             {backgroundImageHover && <img src={backgroundImageHover} alt="Banner hover background" className="banner-image-hover" />}

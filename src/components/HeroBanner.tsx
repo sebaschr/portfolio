@@ -13,6 +13,7 @@ type HeroBannerProps = {
   description?: string;
   linkText?: string;
   linkURL?: string;
+  onLinkClick?: () => void;
   backgroundImage?: string;
   heroVideo?: string;
   videoSettings?: VideoSettings;
@@ -27,6 +28,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   description,
   linkText = 'Read More',
   linkURL,
+  onLinkClick,
   backgroundImage,
   heroVideo,
   videoSettings,
@@ -149,13 +151,19 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           {subtitle && <p className="hero-banner-subtitle">{subtitle}</p>}
           <h1 className="hero-banner-title">{title}</h1>
         </div>
-        {(description || linkURL) && (
+        {(description || linkURL || onLinkClick) && (
           <div className="hero-banner-secondary">
             {description && <p className="hero-banner-description">{description}</p>}
-            {linkURL && (
-              <a href={linkURL} className="hero-banner-cta">
+            {onLinkClick ? (
+              <button type="button" className="hero-banner-cta" onClick={onLinkClick}>
                 {linkText}
-              </a>
+              </button>
+            ) : (
+              linkURL && (
+                <a href={linkURL} className="hero-banner-cta">
+                  {linkText}
+                </a>
+              )
             )}
           </div>
         )}

@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import MenuSvg from "../assets/icons/menu.svg";
+import { useContactModal } from "./ContactModalContext";
 
 const SCROLL_THRESHOLD = 80;
 
 export const Navbar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [pinned, setPinned] = useState(false);
-
-    useEffect(() => {
-        const root = document.getElementById('root');
-        if (root) {
-            if (isOpen) root.classList.add('hide-overflow');
-            else root.classList.remove('hide-overflow');
-        }
-    }, [isOpen])
+    const { open } = useContactModal();
 
     useEffect(() => {
         let lastY = window.scrollY;
@@ -40,27 +32,10 @@ export const Navbar: React.FC = () => {
             <div className="nav-container">
                 <a href="/" className="nav-logo">rojomasrojo</a>
 
-                <button
-                    className="menu-toggle"
-                    aria-label={isOpen ? 'Close menu' : 'Open menu'}
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <img
-                        style={{ width: '35px', height: '35px' }}
-                        src={MenuSvg}
-                        alt=""
-                    />
-                </button>
-
-                <ul className={`nav-links ${isOpen ? "active" : ""}`}>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/projects">Projects</a></li>
-                    <li><a href="/mgz">MGZ</a></li>
-                </ul>
-
-                <a href="mailto:hello@rojomasrojo.com" className="nav-email" aria-label="Email us">
+                <button type="button" className="nav-contact" onClick={open}>
                     <MailIcon />
-                </a>
+                    Contact
+                </button>
             </div>
         </nav>
     );
