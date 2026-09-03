@@ -1,74 +1,22 @@
-// src/App.tsx
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Cube from './components/Cube/Cube';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar, HomePage, About, Projects, JumpingMice, Footer, ErrorPage, Photos } from './components';
 
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Projects = lazy(() => import('./pages/Projects'));
-const Contact = lazy(() => import('./pages/Contact'));
-const WhatsNext = lazy(() => import('./pages/WhatsNext'));
-const Extra = lazy(() => import('./pages/Extra'));
-
-export default function App() {
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Cube />}>
-          {/* front face: your existing HomePage component */}
-          <Route
-            index
-            element={
-              <Suspense
-                fallback={<div style={{ padding: 20 }}>Loading...</div>}
-              >
-                <Home />
-              </Suspense>
-            }
-          />
-          {/* other faces (lazy loaded) */}
-          <Route
-            path="about"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <About />
-              </Suspense>
-            }
-          />
-          <Route
-            path="projects"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <Projects />
-              </Suspense>
-            }
-          />
-          <Route
-            path="contact"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <Contact />
-              </Suspense>
-            }
-          />
-          <Route
-            path="whats-next"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <WhatsNext />
-              </Suspense>
-            }
-          />
-          <Route
-            path="extra"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <Extra />
-              </Suspense>
-            }
-          />
-        </Route>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/mgz" element={<JumpingMice />} />
+        <Route path="/photos" element={<Photos />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
-    </BrowserRouter>
+      <Footer />
+    </Router>
   );
-}
+};
+
+export default App;

@@ -30,7 +30,7 @@ export const Banner: React.FC<BannerProps> = ({
     return (
         <div className={clsx('banner', className, { 'banner--card': isCard, 'hide-img-on-hover': backgroundImageHover })}
             onClick={() => {
-                redirectToPage ? navigate(redirectToPage) : null
+                if (redirectToPage) navigate(redirectToPage);
             }}>
             {backgroundImage && <img src={backgroundImage} alt="Banner background" className="banner-image" />}
             {backgroundImageHover && <img src={backgroundImageHover} alt="Banner hover background" className="banner-image-hover" />}
