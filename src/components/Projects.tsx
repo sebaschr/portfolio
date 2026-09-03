@@ -1,4 +1,4 @@
-import { TextSection } from './index';
+import { TextSection, PageWrapper } from './index';
 import RobotSvg from '../assets/icons/robot.svg';
 import CodeSvg from '../assets/icons/code.svg';
 import MoneySvg from '../assets/icons/money.svg';
@@ -8,7 +8,7 @@ const Projects = () => {
 
   return (
 
-    <div className="wrapper">
+    <PageWrapper>
       <h1 className="page-title">Projects + Experience</h1>
 
       <TextSection
@@ -35,7 +35,7 @@ const Projects = () => {
 
       />
 
-    </div>
+    </PageWrapper>
 
   );
 };

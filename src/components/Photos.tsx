@@ -1,11 +1,11 @@
-import { Banner } from './index';
+import { Banner, PageWrapper } from './index';
 import { images } from '../services/data';
 
 export const Photos = () => {
 
   return (
 
-    <div className="wrapper">
+    <PageWrapper>
       <section className="row mobile-2 max-4">
         {images.map((img) => {
           return (
@@ -21,7 +21,7 @@ export const Photos = () => {
 
       </section>
 
-    </div>
+    </PageWrapper>
 
   );
 };

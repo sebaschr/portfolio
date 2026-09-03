@@ -1,69 +1,34 @@
-import { Banner, HeroBanner } from './index';
+import { PageWrapper, HeroBanner, TextSection, Banner } from './index';
 import video from '../assets/videos/OCEAN LOOP.mp4';
+import CodeSvg from '../assets/icons/code.svg';
 
 export const HomePage = () => {
   return (
-    <div className="wrapper">
+    <>
       <HeroBanner
-        title="hi i'm seb"
-        description="developer / designer / creative"
+        title="Big Ideas. Bold Design."
+        subtitle="rojomasrojo — Digital Design & Development Studio"
+        description="We help ambitious brands design, build, and launch digital products that actually move the needle."
+        linkText="See Our Work"
+        linkURL="/projects"
         heroVideo={video}
         mode="simple"
+        wave
       />
+      <PageWrapper>
+        <TextSection
+          eyebrow="What We Do"
+          title="Design. Build. Launch."
+          text="From brand identity to full-stack web development, we handle every step of bringing your product to life — strategy, design, and code, all under one roof."
+          image={CodeSvg}
+        />
 
-      <section className="row mobile-2">
-        <Banner
-          text="i’m a passionate developer & media creator. do you have an idea? let’s get it going, i love challenges."
-          isCard
-          className="row-two-thirds banner-secondary"
-        />
-        <Banner
-          backgroundImage="https://www.creativefabrica.com/wp-content/uploads/2023/08/03/Retro-Cartoon-Faces-30s-to-60s-Inspired-Graphics-76102320-1-1-580x387.jpg"
-          backgroundImageHover="https://www.creativefabrica.com/wp-content/uploads/2023/08/03/Retro-Cartoon-Faces-30s-to-60s-Inspired-Graphics-76102906-1-1-580x387.jpg"
-          isCard
-          hideOverlay
-        />
-      </section>
-
-      <section className="row mobile-2">
-        <Banner
-          className="section-card section-card-white"
-          isCard
-          text="projects"
-          redirectToPage={'/projects'}
-        />
-        <Banner
-          className="section-card section-card-vertical"
-          isCard
-          text="about"
-          backgroundImage="https://i.pinimg.com/736x/e4/db/8a/e4db8a28ec9b9d8c9d9e25efafcba7b9.jpg"
-          redirectToPage={'/about'}
-        />
-        <Banner
-          className="section-card grow-mobile"
-          isCard
-          text="others"
-          redirectToPage={'/mgz'}
-        />
-      </section>
-
-      <section className="row">
-        <Banner
-          text="Photography"
-          backgroundImage="https://i.imgur.com/DOdqEsB.jpeg"
-          className="section"
-          redirectToPage={'/photos'}
-        />
-      </section>
-
-      <section className="row">
-        <Banner
-          text="Jumping Mice"
-          backgroundImage="https://i.imgur.com/1SCaXF2.jpeg"
-          className="section section-left"
-          redirectToPage={'/mgz'}
-        />
-      </section>
-    </div>
+        <section className="row mobile-2">
+          <Banner className="section-card section-card-white" isCard text="Web Design" />
+          <Banner className="section-card" isCard text="Development" />
+          <Banner className="section-card grow-mobile" isCard text="Branding" />
+        </section>
+      </PageWrapper>
+    </>
   );
 };

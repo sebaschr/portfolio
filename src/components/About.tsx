@@ -1,4 +1,4 @@
-import { TextSection, Banner } from './index';
+import { TextSection, Banner, PageWrapper } from './index';
 import PortraitSvg from '../assets/icons/portrait.svg';
 
 const About = () => {
@@ -6,9 +6,9 @@ const About = () => {
 
   return (
 
-    <div className="wrapper">
+    <PageWrapper>
 
-      <h1 className="page-title">about seb</h1>
+      <h1 className="page-title">about rojomasrojo</h1>
 
       <TextSection
         text="I build things—websites, apps, ideas, and sometimes even the courage to try something totally new. My love for clean, functional, and accessible design keeps me glued to my screen, whether I’m refining an AI-powered tool, revamping a clunky UI, or obsessing over the perfect dark mode toggle.
@@ -23,7 +23,7 @@ const About = () => {
         <Banner className="section-card grow-mobile" isCard text="MGZ" redirectToPage='/mgz' />
       </section>
 
-    </div>
+    </PageWrapper>
 
   );
 };

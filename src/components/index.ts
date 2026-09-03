@@ -9,3 +9,4 @@ export * from './Projects';
 export * from './TextSection';
 export * from './ErrorPage';
 export * from './Photos';
+export * from './PageWrapper';

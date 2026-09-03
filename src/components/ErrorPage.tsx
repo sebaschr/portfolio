@@ -1,18 +1,19 @@
 import FireSvg from '../assets/icons/fire.svg';
 import { TextSection } from './TextSection';
+import { PageWrapper } from './PageWrapper';
 
 export const ErrorPage = () => {
 
   return (
 
-    <div className="wrapper" style={{ display: "flex", justifyContent: "center" }}>
+    <PageWrapper style={{ display: "flex", justifyContent: "center" }}>
 
       <TextSection
         image={FireSvg}
         title="idk where you are man"
       />
 
-    </div>
+    </PageWrapper>
 
   );
 };

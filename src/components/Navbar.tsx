@@ -15,7 +15,7 @@ export const Navbar: React.FC = () => {
     return (
         <nav className="navbar">
             <div className="nav-container">
-                <a href="/" className="nav-logo">Seb</a>
+                <a href="/" className="nav-logo">rojomasrojo</a>
 
                 <button className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
                     <img
