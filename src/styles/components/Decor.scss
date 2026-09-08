@@ -1,0 +1,184 @@
+@use '../main' as *;
+
+// Halftone / dot-matrix fill — the site's signature decorative texture.
+.dot-field {
+  position: absolute;
+  pointer-events: none;
+  background-image: radial-gradient(currentColor 1.6px, transparent 1.6px);
+  background-size: 18px 18px;
+}
+
+// Cheap xerox/collage grain — an SVG feTurbulence tile, applied via ::after
+// so it can sit over any flat-color panel without extra markup.
+.grain-overlay {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+}
+
+// Diagonal glow / motion-streak accent — used sparingly, one per page.
+.glow-streak {
+  position: absolute;
+  inset: -20% -10%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(50% 40% at 25% 15%, rgba($secondary-red, 0.55), transparent 70%);
+  filter: blur(50px);
+  transform: rotate(-10deg);
+}
+
+// Positions the glow-streak behind the homepage's closing CTA panel.
+.home-cta-decor {
+  position: relative;
+  overflow: hidden;
+}
+
+// Full-bleed page hero panel used atop Projects/Experience.
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: $dark-red;
+  color: $cream;
+  padding: 8rem 0 4rem;
+
+  @media (min-width: $min-desktop) {
+    padding: 10rem 0 5rem;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.page-hero-dots {
+  inset: 0;
+  z-index: 0;
+  color: rgba($cream, 0.12);
+}
+
+.page-eyebrow {
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $secondary-red;
+  margin-bottom: 0.5rem;
+}
+
+.page-hero-intro {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  max-width: 40rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+// Bigger, tighter than .banner-title — headlines as the graphic.
+// Capped low enough that an 11-character word ("EXPERIENCIA", "SAFETY MGMT")
+// still fits on one line inside the 1280px wrapper instead of wrapping mid-word.
+.mega-title {
+  font-size: clamp(2.75rem, 10vw, 8.5rem);
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  word-break: break-word;
+  color: $cream;
+}
+
+.mega-title-line {
+  display: block;
+}
+
+.featured-tagline {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.featured-meta {
+  margin-bottom: 1.5rem !important;
+  opacity: 0.85;
+}
+
+.section-label {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: $white;
+  margin: 3rem 0 1.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  padding: 0.35rem 0.9rem;
+  border: 2px solid $cream;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: $cream;
+  white-space: nowrap;
+}
+
+.chip-row--large .chip {
+  font-size: 0.9rem;
+  padding: 0.45rem 1.1rem;
+  border-color: $secondary-red;
+  color: $secondary-red;
+  background-color: $cream;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+
+  @media (min-width: $min-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.feature-grid-item {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.4;
+
+  &::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: $secondary-red;
+    font-weight: 900;
+  }
+}

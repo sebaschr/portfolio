@@ -1,20 +1,36 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar, HomePage, Footer, ErrorPage, ContactModal, ContactModalProvider } from './components';
+import {
+  Navbar,
+  HomePage,
+  ProjectsPage,
+  ExperiencePage,
+  AboutPage,
+  Footer,
+  ErrorPage,
+  ContactModal,
+  ContactModalProvider,
+} from './components';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 const App: React.FC = () => {
   return (
-    <ContactModalProvider>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-        <Footer />
-        <ContactModal />
-      </Router>
-    </ContactModalProvider>
+    <LanguageProvider>
+      <ContactModalProvider>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+          <ContactModal />
+        </Router>
+      </ContactModalProvider>
+    </LanguageProvider>
   );
 };
 

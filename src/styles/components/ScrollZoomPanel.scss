@@ -1,0 +1,37 @@
+@use '../main' as *;
+
+.scroll-zoom-panel {
+  position: relative;
+  height: calc(100vh + var(--pin-extra, 60vh));
+}
+
+.scroll-zoom-panel-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+// Let the hero fill the full pinned viewport height instead of its own
+// (shorter) intrinsic min-height, so the zoom has real media to scale.
+.scroll-zoom-panel-sticky > .hero-banner {
+  height: 100%;
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-zoom-panel {
+    height: auto;
+  }
+
+  .scroll-zoom-panel-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 100vh;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,25 @@
+# rojomasrojo
+
+> Digital design and development studio run by Sebastian Chacon, a senior front end engineer based in Costa Rica. The site is bilingual: Spanish is the default, English is a toggle in the navbar.
+
+## Pages
+
+- `/` — Home. Studio introduction, services, featured work, contact.
+- `/projects` — Case studies. Lead project: an independent multi-tenant safety-management SaaS platform (React, TypeScript, Node.js, Express, MongoDB, AWS S3). Also covers employer work at Granicus, viaPeople, and Konrad, and a brief mention of Solasystem.
+- `/experience` — Reverse-chronological work history, skills, education, and languages.
+- `/about` — About the rojomasrojo studio itself: what it is, how it works, and the meaning of the name.
+
+## Key facts
+
+- Sebastian Chacon: 5+ years building accessible, scalable React and TypeScript applications for banking, transportation, enterprise SaaS, and government clients.
+- Current role: Web Developer at Granicus (Mar 2025 to present, remote, Costa Rica).
+- Previously: Frontend Engineer & Designer at viaPeople, Inc. (Oct 2023 to Feb 2025); Software Developer at Konrad (Sep 2021 to May 2023, San Jose, Costa Rica); Frontend Developer contractor at Solasystem (Mar to Apr 2021, remote, Singapore).
+- Independent project: a multi-tenant safety-management platform for a safety consulting firm, in production since 2026. Features RBAC across five roles, a hierarchical work-permit workflow, QR worker badges, a batch registration wizard with CSV duplicate detection, and a bilingual UI.
+- Stack: React, TypeScript, JavaScript, Vue.js, Node.js, MongoDB, AWS, Java, Python. Daily use of AI tooling (Cursor, Claude, agent and subagent workflows).
+- Education: B.S. Software Engineering at CENFOTEC (in progress), Technical Degree in Web Development & Design at CENFOTEC (2023), Web Development Academy at BrainStation (2021).
+- Languages: Spanish (native), English (professional proficiency).
+- Contact: via the contact form linked from the site navigation. No public email address is listed on the site.
+
+## Notes for AI agents
+
+This is a client-rendered single-page app built with React and Vite; page content loads via JavaScript and client-side routing. If you cannot execute JavaScript, this file is the most reliable summary of the site's content.

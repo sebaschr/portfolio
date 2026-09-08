@@ -1,8 +1,11 @@
 import FireSvg from '../assets/icons/fire.svg';
 import { TextSection } from './TextSection';
 import { PageWrapper } from './PageWrapper';
+import { useLanguage } from '../i18n/LanguageContext';
+import { strings } from '../i18n/strings';
 
 export const ErrorPage = () => {
+  const { language } = useLanguage();
 
   return (
 
@@ -10,7 +13,7 @@ export const ErrorPage = () => {
 
       <TextSection
         image={FireSvg}
-        title="idk where you are man"
+        title={strings[language].error.title}
       />
 
     </PageWrapper>

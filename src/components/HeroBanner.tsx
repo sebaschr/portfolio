@@ -17,6 +17,10 @@ type HeroBannerProps = {
   backgroundImage?: string;
   heroVideo?: string;
   videoSettings?: VideoSettings;
+  /** Arbitrary media (e.g. a generated scene) rendered instead of image/video. */
+  customBackground?: React.ReactNode;
+  /** Set false when customBackground already handles its own contrast. */
+  overlay?: boolean;
   mode?: 'simple' | 'two-col';
   wave?: boolean;
   className?: string;
@@ -32,6 +36,8 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   backgroundImage,
   heroVideo,
   videoSettings,
+  customBackground,
+  overlay = true,
   mode = 'simple',
   wave = false,
   className,
@@ -92,7 +98,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
 
   const handleToggleMute = () => setIsMuted((prev) => !prev);
 
-  const hasMedia = Boolean(backgroundImage || heroVideo);
+  const hasMedia = Boolean(backgroundImage || heroVideo || customBackground);
   const showMuteToggle = Boolean(heroVideo) && showControls && !muted;
 
   return (
@@ -105,7 +111,9 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
     >
       {hasMedia && (
         <div className="hero-banner-media">
-          {heroVideo ? (
+          {customBackground ? (
+            customBackground
+          ) : heroVideo ? (
             <video
               ref={videoRef}
               className="hero-banner-video"
@@ -119,7 +127,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           ) : (
             backgroundImage && <img src={backgroundImage} alt="" className="hero-banner-image" />
           )}
-          <div className="hero-banner-overlay" />
+          {overlay && <div className="hero-banner-overlay" />}
         </div>
       )}
 

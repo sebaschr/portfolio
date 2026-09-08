@@ -1,0 +1,67 @@
+@use '../main' as *;
+
+.pixel-crowd {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pixel-crowd-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, $black 0%, $dark-red 65%, $primary 100%);
+  color: rgba($cream, 0.1);
+}
+
+.pixel-walker {
+  position: absolute;
+  left: 0;
+  animation: pixel-walk-across var(--duration, 22s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  animation-direction: var(--direction, normal);
+  will-change: transform;
+}
+
+.pixel-walker-bob {
+  animation: pixel-walk-bob var(--bob-duration, 0.5s) steps(2) infinite;
+}
+
+.pixel-person {
+  display: block;
+  shape-rendering: crispEdges;
+
+  g {
+    fill: $cream;
+  }
+
+  .pixel-person-accent {
+    fill: $secondary-red;
+  }
+}
+
+@keyframes pixel-walk-across {
+  from {
+    transform: translateX(-10vw);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes pixel-walk-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-walker,
+  .pixel-walker-bob {
+    animation: none;
+  }
+}

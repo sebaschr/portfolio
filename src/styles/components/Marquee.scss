@@ -12,7 +12,13 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 50s linear infinite;
+  animation: marquee-scroll 110s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 .marquee-text {

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
+import { Link, NavLink } from "react-router-dom";
 import { useContactModal } from "./ContactModalContext";
+import { useLanguage } from "../i18n/LanguageContext";
+import { strings } from "../i18n/strings";
 
 const SCROLL_THRESHOLD = 80;
 
 export const Navbar: React.FC = () => {
     const [pinned, setPinned] = useState(false);
     const { open } = useContactModal();
+    const { language, toggleLanguage } = useLanguage();
+    const t = strings[language];
 
     useEffect(() => {
         let lastY = window.scrollY;
@@ -27,15 +32,38 @@ export const Navbar: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+        clsx('nav-link', { 'nav-link--active': isActive });
+
     return (
         <nav className={clsx('navbar', { 'navbar--pinned': pinned })}>
             <div className="nav-container">
-                <a href="/" className="nav-logo">rojomasrojo</a>
+                <Link to="/" className="nav-logo">rojomasrojo</Link>
 
-                <button type="button" className="nav-contact" onClick={open}>
-                    <MailIcon />
-                    Contact
-                </button>
+                <div className="nav-links">
+                    <NavLink to="/" end className={navLinkClass}>{t.nav.home}</NavLink>
+                    <NavLink to="/projects" className={navLinkClass}>{t.nav.projects}</NavLink>
+                    <NavLink to="/experience" className={navLinkClass}>{t.nav.experience}</NavLink>
+                    <NavLink to="/about" className={navLinkClass}>{t.nav.about}</NavLink>
+                </div>
+
+                <div className="nav-actions">
+                    <button
+                        type="button"
+                        className="nav-lang-toggle"
+                        onClick={toggleLanguage}
+                        aria-label="Toggle language"
+                    >
+                        <span className={clsx({ 'nav-lang-active': language === 'es' })}>ES</span>
+                        <span className="nav-lang-divider">/</span>
+                        <span className={clsx({ 'nav-lang-active': language === 'en' })}>EN</span>
+                    </button>
+
+                    <button type="button" className="nav-contact" onClick={open}>
+                        <MailIcon />
+                        {t.nav.contact}
+                    </button>
+                </div>
             </div>
         </nav>
     );
