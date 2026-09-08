@@ -28,3 +28,4 @@ export * from './RestaurantOrder';
 export * from './RestaurantAbout';
 export * from './RestaurantReservations';
 export * from './ItemModal';
+export * from './PersonalPage';

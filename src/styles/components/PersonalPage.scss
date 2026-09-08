@@ -1,0 +1,212 @@
+@use '../main' as *;
+
+// A deliberately calm, unbranded resume view: no punk styling, no
+// pixel-crowds, no mega-titles. Just the content, plainly presented.
+.personal-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: $cream;
+  color: $black;
+}
+
+.personal-page-inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 3rem 24px 5rem;
+  box-sizing: border-box;
+
+  @media (min-width: $min-tablet) {
+    padding: 5rem 2rem 6rem;
+  }
+}
+
+.personal-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.personal-name {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.personal-role {
+  color: $dimblack;
+  font-size: 1rem;
+}
+
+.personal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.personal-lang {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid $dark-red;
+  border-radius: 999px;
+  background: none;
+  color: $dark-red;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.personal-contact-btn {
+  padding: 0.55rem 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background-color: $dark-red;
+  color: $cream;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font: inherit;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.personal-intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 38rem;
+}
+
+.personal-section {
+  margin-bottom: 3rem;
+}
+
+.personal-section-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $dark-red;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba($black, 0.12);
+}
+
+.personal-entry {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba($black, 0.08);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.personal-entry-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.personal-entry-company {
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.personal-entry-dates {
+  font-size: 0.85rem;
+  color: $dimblack;
+  white-space: nowrap;
+}
+
+.personal-entry-role {
+  font-size: 0.9rem;
+  color: $dimblack;
+  margin-top: 0.15rem;
+}
+
+.personal-entry-bullets {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  li {
+    padding-left: 1rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    &::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: $dark-red;
+      font-weight: 900;
+    }
+  }
+}
+
+.personal-skills {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: $min-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.personal-skill-group h3 {
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.personal-skill-group p {
+  font-size: 0.9rem;
+  color: $dimblack;
+}
+
+.personal-section--split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (min-width: $min-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.personal-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.personal-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba($black, 0.12);
+  display: flex;
+  justify-content: center;
+}
