@@ -1,7 +1,6 @@
 export * from './Navbar';
 export * from './Banner';
 export * from './HeroBanner';
-export * from './Footer';
 export * from './HomePage';
 export * from './ProjectsPage';
 export * from './ExperiencePage';
@@ -15,6 +14,8 @@ export * from './ContactForm';
 export * from './ContactModal';
 export * from './ContactModalContext';
 export * from './Reveal';
-export * from './EntryCard';
 export * from './ScrollZoomPanel';
 export * from './PixelCrowd';
+export * from './PixelPerson';
+export * from './FloatingActions';
+export * from './FolderTabs';

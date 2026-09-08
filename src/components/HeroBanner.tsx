@@ -165,11 +165,13 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
             {onLinkClick ? (
               <button type="button" className="hero-banner-cta" onClick={onLinkClick}>
                 {linkText}
+                <ArrowIcon />
               </button>
             ) : (
               linkURL && (
                 <a href={linkURL} className="hero-banner-cta">
                   {linkText}
+                  <ArrowIcon />
                 </a>
               )
             )}
@@ -185,6 +187,13 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
     </section>
   );
 };
+
+const ArrowIcon: React.FC = () => (
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <line x1="4" y1="12" x2="18" y2="12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M12 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
 const PlayIcon: React.FC = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">

@@ -1,38 +1,6 @@
 @use '../main' as *;
 
-.entry-card {
-  background-color: $cream;
-  color: $dark-red;
-  border: 4px solid $dark-red;
-  border-radius: 4px;
-  padding: 1.75rem;
-}
-
-.entry-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.entry-card-company {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-.entry-card-dates {
-  font-weight: 800;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  color: $secondary-red;
-  white-space: nowrap;
-}
-
+// Shared by ProjectsPage's featured-project meta line and FolderTabs' panel.
 .entry-card-meta {
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -40,62 +8,4 @@
 
 .entry-card-location {
   opacity: 0.7;
-}
-
-.entry-card .chip {
-  border-color: $dark-red;
-  color: $dark-red;
-}
-
-.entry-card-bullets {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-
-  li {
-    padding-left: 1.25rem;
-    position: relative;
-    line-height: 1.4;
-
-    &::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: $secondary-red;
-      font-weight: 900;
-    }
-  }
-}
-
-.entry-card--minor {
-  padding: 1.25rem 1.75rem;
-
-  .entry-card-company {
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  }
-}
-
-.entry-card-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin: 1.5rem 0 3rem;
-
-  @media (min-width: $min-tablet) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (min-width: $min-desktop) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin: 1.5rem 0 3rem;
 }

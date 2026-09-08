@@ -1,10 +1,23 @@
 import React, { useMemo } from 'react';
 
-// 6x8 pixel-grid person, built cell by cell so the whole scene stays a few
-// SVGs and CSS keyframes instead of drawn frames or an animation library.
-const PERSON_ROWS = ['..XX..', '..XX..', '.XXXX.', 'XXXXXX', '.XXXX.', '.XXXX.', '.X..X.', 'X....X'];
+// 8x11 pixel-grid person: round head, distinct arms, torso, legs. Built cell
+// by cell so the whole scene stays a few SVGs and CSS keyframes instead of
+// drawn frames or an animation library.
+const PERSON_ROWS = [
+  '..XXXX..',
+  '.XXXXXX.',
+  '.XXXXXX.',
+  '..XXXX..',
+  'X.XXXX.X',
+  'X.XXXX.X',
+  'X.XXXX.X',
+  '..XXXX..',
+  '..XXXX..',
+  '.XXX.XXX',
+  '.XXX.XXX',
+];
 
-const PERSON_CELLS: [number, number][] = PERSON_ROWS.flatMap((row, y) =>
+export const PERSON_CELLS: [number, number][] = PERSON_ROWS.flatMap((row, y) =>
   row.split('').flatMap((cell, x) => (cell === 'X' ? [[x, y] as [number, number]] : []))
 );
 
@@ -21,22 +34,22 @@ type Walker = {
 
 const randomWalkers = (count: number): Walker[] =>
   Array.from({ length: count }, (_, id) => {
-    const size = 18 + Math.random() * 34;
+    const size = 16 + Math.random() * 36;
     return {
       id,
-      top: 66 + Math.random() * 28,
+      top: 12 + Math.random() * 82,
       size,
       duration: 34 - size / 3 + Math.random() * 10,
       delay: -Math.random() * 40,
       bobDuration: 0.4 + Math.random() * 0.3,
       reverse: Math.random() < 0.5,
-      accent: Math.random() < 0.15,
+      accent: Math.random() < 0.18,
     };
   });
 
 type PixelCrowdProps = { count?: number };
 
-export const PixelCrowd: React.FC<PixelCrowdProps> = ({ count = 10 + Math.floor(Math.random() * 5) }) => {
+export const PixelCrowd: React.FC<PixelCrowdProps> = ({ count = 22 + Math.floor(Math.random() * 8) }) => {
   const walkers = useMemo(() => randomWalkers(count), [count]);
 
   return (
@@ -60,10 +73,10 @@ export const PixelCrowd: React.FC<PixelCrowdProps> = ({ count = 10 + Math.floor(
               className="pixel-person"
               style={{
                 width: w.size,
-                height: (w.size * 8) / 6,
+                height: (w.size * 11) / 8,
                 transform: w.reverse ? 'scaleX(-1)' : undefined,
               }}
-              viewBox="0 0 6 8"
+              viewBox="0 0 8 11"
             >
               <g className={w.accent ? 'pixel-person-accent' : undefined}>
                 {PERSON_CELLS.map(([x, y]) => (

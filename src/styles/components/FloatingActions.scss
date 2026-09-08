@@ -1,0 +1,91 @@
+@use '../main' as *;
+
+.fab {
+  position: fixed;
+  top: 6.5rem;
+  right: 1.25rem;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+
+  @media (max-width: $min-desktop) {
+    top: 12rem;
+  }
+}
+
+.fab-toggle {
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: $secondary-red;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba($black, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.fab--open .fab-toggle svg {
+  transform: rotate(45deg);
+}
+
+.fab-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+
+.fab--open .fab-actions {
+  max-height: 10rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fab-action {
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background-color: $cream;
+  color: $dark-red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba($black, 0.35);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+
+  &:hover {
+    transform: scale(1.08);
+    background-color: $white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab-toggle svg,
+  .fab-actions {
+    transition: none;
+  }
+}

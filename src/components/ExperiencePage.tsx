@@ -1,4 +1,4 @@
-import { PageWrapper, Marquee, Reveal, EntryCard } from './index';
+import { PageWrapper, Marquee, Reveal, FolderTabs, PixelPerson } from './index';
 import { useLanguage } from '../i18n/LanguageContext';
 import { strings } from '../i18n/strings';
 import {
@@ -24,6 +24,7 @@ export const ExperiencePage = () => {
             <h1 className="mega-title">{t.pages.experienceLabel}</h1>
             <p className="page-hero-intro">{experienceIntro[language]}</p>
           </Reveal>
+          <PixelPerson className="experience-avatar" />
         </PageWrapper>
       </section>
 
@@ -34,13 +35,9 @@ export const ExperiencePage = () => {
           <h2 className="section-label">{experienceLabels.work[language]}</h2>
         </Reveal>
 
-        <div className="timeline">
-          {timeline.map((entry, i) => (
-            <Reveal key={entry.id} delay={i * 80} className="timeline-item">
-              <EntryCard entry={entry} />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={80}>
+          <FolderTabs entries={timeline} />
+        </Reveal>
       </PageWrapper>
 
       <PageWrapper>

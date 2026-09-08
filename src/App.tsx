@@ -6,10 +6,10 @@ import {
   ProjectsPage,
   ExperiencePage,
   AboutPage,
-  Footer,
   ErrorPage,
   ContactModal,
   ContactModalProvider,
+  FloatingActions,
 } from './components';
 import { LanguageProvider } from './i18n/LanguageContext';
 
@@ -26,8 +26,8 @@ const App: React.FC = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-          <Footer />
           <ContactModal />
+          <FloatingActions />
         </Router>
       </ContactModalProvider>
     </LanguageProvider>

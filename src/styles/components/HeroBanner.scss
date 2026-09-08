@@ -69,8 +69,8 @@
   }
 
   &-title {
-    font-size: clamp(2.5rem, 6vw, 5.5rem);
-    line-height: clamp(2.5rem, 5.5vw, 5rem);
+    font-size: clamp(2.75rem, 9vw, 8rem);
+    line-height: clamp(2.5rem, 8.5vw, 7.2rem);
     font-weight: 900;
     text-shadow: 0 2px 18px rgba($black, 0.85);
   }
@@ -83,23 +83,36 @@
   }
 
   &-cta {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    padding: 1.1rem 2.25rem;
     background-color: $secondary-red;
     color: $white;
     text-decoration: none;
     border: none;
+    border-radius: 999px;
     font: inherit;
+    font-size: 1.1rem;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
     cursor: pointer;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     align-self: center;
 
+    svg {
+      transition: transform 0.3s ease-in-out;
+    }
+
     &:hover {
-      opacity: 0.8;
+      opacity: 0.85;
+      transform: translateY(-2px);
+
+      svg {
+        transform: translateX(4px);
+      }
     }
   }
 

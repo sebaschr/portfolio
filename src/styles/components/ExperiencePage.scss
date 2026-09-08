@@ -1,5 +1,41 @@
 @use '../main' as *;
 
+.pixel-person-solo {
+  display: block;
+  shape-rendering: crispEdges;
+  fill: $cream;
+}
+
+.experience-avatar {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  z-index: 2;
+  animation: pixel-idle-bob 2.6s ease-in-out infinite;
+
+  @media (max-width: $min-tablet) {
+    position: static;
+    display: block;
+    margin: 2rem auto 0;
+  }
+}
+
+@keyframes pixel-idle-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-avatar {
+    animation: none;
+  }
+}
+
 .skill-groups {
   display: grid;
   grid-template-columns: 1fr;

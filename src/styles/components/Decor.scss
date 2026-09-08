@@ -1,5 +1,14 @@
 @use '../main' as *;
 
+.more-work {
+  margin: 1.5rem 0 4rem;
+  color: $white;
+}
+
+.more-work .preview-lead {
+  color: inherit;
+}
+
 // Halftone / dot-matrix fill — the site's signature decorative texture.
 .dot-field {
   position: absolute;
@@ -35,12 +44,6 @@
   background: radial-gradient(50% 40% at 25% 15%, rgba($secondary-red, 0.55), transparent 70%);
   filter: blur(50px);
   transform: rotate(-10deg);
-}
-
-// Positions the glow-streak behind the homepage's closing CTA panel.
-.home-cta-decor {
-  position: relative;
-  overflow: hidden;
 }
 
 // Full-bleed page hero panel used atop Projects/Experience.

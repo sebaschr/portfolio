@@ -1,8 +1,8 @@
 import type { Localized } from './types';
 
 export const homeIntro: Localized = {
-  en: 'rojomasrojo is a small studio. Frontend engineering, product design, brand systems. We build the thing, not the deck about the thing.',
-  es: 'rojomasrojo es un estudio pequeño. Ingeniería frontend, diseño de producto, sistemas de marca. Construimos la cosa, no el deck sobre la cosa.',
+  en: 'Digital design and development, start to finish. Clear interfaces, solid code, products that work.',
+  es: 'Diseño y desarrollo digital, de principio a fin. Interfaces claras, código sólido, productos que funcionan.',
 };
 
 export type CollectionTile = {
@@ -32,9 +32,12 @@ export const collectionTiles: CollectionTile[] = [
     variant: 'grain',
   },
   {
-    id: 'scale',
-    label: { en: 'SCALE', es: 'ESCALAR' },
-    caption: { en: 'Multi-tenant, multi-language, ready to grow.', es: 'Multi-tenant, multi-idioma, listo para crecer.' },
+    id: 'ai',
+    label: { en: 'AI', es: 'IA' },
+    caption: {
+      en: 'Cursor and Claude, every day. Built into the real workflow.',
+      es: 'Cursor y Claude, todos los días. Parte real del flujo de trabajo.',
+    },
     variant: 'stripes',
   },
 ];
@@ -54,16 +57,19 @@ export const previewSection = {
   eyebrow: { en: 'The Work', es: 'El Trabajo' } satisfies Localized,
   word: { en: 'WORK', es: 'TRABAJO' } satisfies Localized,
   lead: {
-    en: 'Five years, four companies, projects that shipped.',
-    es: 'Cinco años, cuatro empresas, proyectos que se lanzaron.',
+    en: "Before founding rojomasrojo, I spent five years as an employee at Granicus, viaPeople, and Konrad: banking, transportation, government, enterprise SaaS. Today I'm building my own project: a multi-tenant safety platform, end to end.",
+    es: 'Antes de fundar rojomasrojo, trabajé cinco años como empleado en Granicus, viaPeople y Konrad: banca, transporte, gobierno, SaaS enterprise. Hoy construyo mi propio proyecto: una plataforma de seguridad multi-tenant, de punta a punta.',
   } satisfies Localized,
+  featured: {
+    id: 'safety-mgmt',
+    name: 'Safety Management Platform',
+    blurb: {
+      en: 'Multi-tenant safety and compliance SaaS. RBAC, work-permit workflows, QR worker badges, bilingual UI. Built solo, end to end.',
+      es: 'SaaS de seguridad y cumplimiento multi-tenant. RBAC, workflows de permisos de trabajo, badges QR, UI bilingüe. Construido en solitario, de punta a punta.',
+    } satisfies Localized,
+    href: '/projects',
+  },
   items: [
-    {
-      id: 'safety-mgmt',
-      name: 'Safety Mgmt Platform',
-      blurb: { en: 'Multi-tenant safety SaaS.', es: 'SaaS de seguridad multi-tenant.' } satisfies Localized,
-      href: '/projects',
-    },
     {
       id: 'granicus',
       name: 'Granicus',
@@ -91,9 +97,4 @@ export const previewSection = {
   ],
   seeProjects: { en: 'See All Projects', es: 'Ver Todos Los Proyectos' } satisfies Localized,
   seeExperience: { en: 'See Full Experience', es: 'Ver Experiencia Completa' } satisfies Localized,
-};
-
-export const closingStatement: Localized = {
-  en: 'Good work looks easy in the end. The hard part happens before. That\'s what I do.',
-  es: 'El buen trabajo se ve fácil al final. Lo difícil pasa antes. Eso es lo que hago.',
 };

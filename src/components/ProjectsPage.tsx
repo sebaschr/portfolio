@@ -1,14 +1,8 @@
-import { PageWrapper, Marquee, Reveal, EntryCard } from './index';
+import { Link } from 'react-router-dom';
+import { PageWrapper, Marquee, Reveal } from './index';
 import { useLanguage } from '../i18n/LanguageContext';
 import { strings } from '../i18n/strings';
-import {
-  featuredProject,
-  featuredProjectHero,
-  employerProjects,
-  minorProjects,
-  projectsIntro,
-  projectsLabels,
-} from '../data/projects';
+import { featuredProject, featuredProjectHero, projectsIntro, projectsLabels } from '../data/projects';
 
 export const ProjectsPage = () => {
   const { language } = useLanguage();
@@ -68,31 +62,12 @@ export const ProjectsPage = () => {
       <Marquee text={projectsLabels.marqueeIntro[language]} />
 
       <PageWrapper>
-        <Reveal>
-          <h2 className="section-label">{projectsLabels.employerWork[language]}</h2>
+        <Reveal className="more-work">
+          <p className="preview-lead">{projectsLabels.moreWork[language]}</p>
+          <Link className="preview-cta" to="/experience">
+            {projectsLabels.seeExperience[language]}
+          </Link>
         </Reveal>
-
-        <div className="entry-card-grid">
-          {employerProjects.map((entry, i) => (
-            <Reveal key={entry.id} delay={i * 80}>
-              <EntryCard entry={entry} maxBullets={3} />
-            </Reveal>
-          ))}
-        </div>
-      </PageWrapper>
-
-      <PageWrapper>
-        <Reveal>
-          <h2 className="section-label">{projectsLabels.alsoWorked[language]}</h2>
-        </Reveal>
-
-        <div className="entry-card-grid">
-          {minorProjects.map((entry) => (
-            <Reveal key={entry.id}>
-              <EntryCard entry={entry} maxBullets={2} className="entry-card--minor" />
-            </Reveal>
-          ))}
-        </div>
       </PageWrapper>
     </>
   );

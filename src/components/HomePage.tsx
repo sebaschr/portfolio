@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import { PageWrapper, HeroBanner, Marquee, Banner, Reveal, ScrollZoomPanel, PixelCrowd } from './index';
+import { PageWrapper, HeroBanner, Marquee, Reveal, ScrollZoomPanel, PixelCrowd } from './index';
 import { useContactModal } from './ContactModalContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { strings } from '../i18n/strings';
-import { homeIntro, collectionTiles, redBanner, previewSection, closingStatement } from '../data/home';
+import { homeIntro, collectionTiles, redBanner, previewSection } from '../data/home';
 
 export const HomePage = () => {
   const { open } = useContactModal();
@@ -17,12 +17,10 @@ export const HomePage = () => {
         <HeroBanner
           title={t.heroTitle}
           subtitle={t.heroSubtitle}
-          description={t.heroDescription}
           linkText={t.heroCta}
           onLinkClick={open}
           customBackground={<PixelCrowd />}
           overlay={false}
-          wave
         />
       </ScrollZoomPanel>
 
@@ -81,6 +79,16 @@ export const HomePage = () => {
             <p className="preview-lead">{previewSection.lead[language]}</p>
           </Reveal>
 
+          <Reveal>
+            <Link className="preview-featured" to={previewSection.featured.href}>
+              <span className="preview-featured-name">{previewSection.featured.name}</span>
+              <span className="preview-featured-blurb">{previewSection.featured.blurb[language]}</span>
+              <span className="preview-featured-arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          </Reveal>
+
           <div className="preview-items">
             {previewSection.items.map((item, i) => (
               <Reveal key={item.id} delay={i * 70}>
@@ -104,21 +112,6 @@ export const HomePage = () => {
             </Link>
           </Reveal>
         </PageWrapper>
-      </section>
-
-      <PageWrapper>
-        <Reveal>
-          <div className="home-cta-decor">
-            <div className="glow-streak" aria-hidden="true" />
-            <section className="row">
-              <Banner text={t.ctaTitle} subtext={t.ctaSubtext} className="section" onClick={open} />
-            </section>
-          </div>
-        </Reveal>
-      </PageWrapper>
-
-      <section className="closing-statement grain-overlay">
-        <p className="closing-statement-text">{closingStatement[language]}</p>
       </section>
     </>
   );
