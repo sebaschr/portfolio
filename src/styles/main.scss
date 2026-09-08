@@ -261,6 +261,17 @@ body,
   .section > .banner-title {
     font-size: clamp(2rem, 9vw, 5rem);
   }
+
+  // The 30rem desktop height leaves a huge empty box around short CTA
+  // copy on narrow screens; shrink it to fit the content instead.
+  // box-sizing:border-box keeps the padding from widening past the
+  // banner's existing calc(90% - 20px) width and reintroducing overflow.
+  .section {
+    box-sizing: border-box;
+    height: auto;
+    min-height: 18rem;
+    padding: 3rem 1.5rem;
+  }
 }
 
 // Mobile Adjustments

@@ -94,6 +94,6 @@ export const previewSection = {
 };
 
 export const closingStatement: Localized = {
-  en: 'Good work looks obvious once it ships. Getting there is the hard part. That\'s what we do.',
-  es: 'El buen trabajo se ve obvio una vez que se lanza. Llegar ahí es la parte difícil. Eso es lo que hacemos.',
+  en: 'Good work looks easy in the end. The hard part happens before. That\'s what I do.',
+  es: 'El buen trabajo se ve fácil al final. Lo difícil pasa antes. Eso es lo que hago.',
 };

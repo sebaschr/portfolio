@@ -10,30 +10,30 @@ export const aboutLabels = {
 };
 
 export const aboutLead: Localized = {
-  en: "I'm Sebastian Chacon. rojomasrojo is the name I build under: not a separate company, not a team. Every case study on /projects and every job on /experience is my own work.",
-  es: 'Soy Sebastian Chacon. rojomasrojo es el nombre bajo el que construyo: no es una empresa aparte, no es un equipo. Cada caso de estudio en /proyectos y cada trabajo en /experiencia es mío.',
+  en: "I'm Sebastian Chacon, a frontend engineer. rojomasrojo is the name for my independent work. Everything on this site, from the projects to the experience, is mine.",
+  es: 'Soy Sebastian Chacon, ingeniero frontend. rojomasrojo es el nombre de mi trabajo independiente. Todo en este sitio, desde los proyectos hasta la experiencia, es mío.',
 };
 
 export const aboutSections: { title: Localized; text: Localized }[] = [
   {
     title: { en: 'What I Do', es: 'Qué Hago' },
     text: {
-      en: "Frontend engineering, product design, brand systems. I work close to the code, not just the mockups. If it doesn't run in a browser, it isn't done.",
-      es: 'Ingeniería frontend, diseño de producto, sistemas de marca. Trabajo cerca del código, no solo de los mockups. Si no corre en un navegador, no está terminado.',
+      en: 'I do frontend engineering, product design, and brand systems. I work directly with code, not just Figma files.',
+      es: 'Hago ingeniería frontend, diseño de producto y sistemas de marca. Trabajo directamente con el código, no solo con diseños en Figma.',
     },
   },
   {
     title: { en: 'How I Work', es: 'Cómo Trabajo' },
     text: {
-      en: 'Design and development happen together, not in sequence. Short loops, real feedback, fewer meetings. AI tools handle the repetitive work so I spend my time on the decisions that matter.',
-      es: 'Diseño y desarrollo pasan juntos, no en secuencia. Loops cortos, feedback real, menos reuniones. Las herramientas de IA hacen el trabajo repetitivo para que yo me enfoque en las decisiones que importan.',
+      en: 'Design and development happen together, not separately. I use AI tools for the repetitive work and focus my own time on the decisions that matter.',
+      es: 'Diseño y desarrollo van juntos, no por separado. Uso herramientas de IA para el trabajo repetitivo y me enfoco en las decisiones importantes.',
     },
   },
   {
     title: { en: 'The Name', es: 'El Nombre' },
     text: {
-      en: 'Red on red. No dilution, no middle ground. It is the way I work: direct, or not at all.',
-      es: 'Rojo sobre rojo. Sin dilución, sin punto medio. Así trabajo: directo, o nada.',
+      en: 'The name comes from the color: red on red. Simple and direct, the way I like to work.',
+      es: 'El nombre viene del color: rojo sobre rojo. Simple y directo, como me gusta trabajar.',
     },
   },
 ];
