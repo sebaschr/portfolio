@@ -1,13 +1,13 @@
 # rojomasrojo
 
-> Digital design and development studio run by Sebastian Chacon, a senior front end engineer based in Costa Rica. The site is bilingual: Spanish is the default, English is a toggle in the navbar.
+> https://rojomasrojo.com — rojomasrojo is the studio name Sebastian Chacon, a senior front end engineer based in Costa Rica, builds under. It is not a separate company or team; every project on this site is his own work. The site is bilingual: Spanish is the default, English is a toggle in the navbar.
 
 ## Pages
 
-- `/` — Home. Studio introduction, services, featured work, contact.
+- `/` — Home. Introduction, services, featured work, contact.
 - `/projects` — Case studies. Lead project: an independent multi-tenant safety-management SaaS platform (React, TypeScript, Node.js, Express, MongoDB, AWS S3). Also covers employer work at Granicus, viaPeople, and Konrad, and a brief mention of Solasystem.
 - `/experience` — Reverse-chronological work history, skills, education, and languages.
-- `/about` — About the rojomasrojo studio itself: what it is, how it works, and the meaning of the name.
+- `/about` — About Sebastian Chacon and the rojomasrojo name: who he is, how he works, and the meaning of the name.
 
 ## Key facts
 

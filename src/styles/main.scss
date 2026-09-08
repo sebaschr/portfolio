@@ -26,6 +26,9 @@ body,
   height: 100%;
   width: 100%;
   min-width: 320px;
+  // clip (not hidden) so this doesn't pair with overflow-y and turn #root
+  // into its own scroll container, which collapses position:sticky panels.
+  overflow-x: clip;
 }
 
 // Scrollbar Styling
@@ -51,6 +54,11 @@ body,
   margin: auto;
   width: 100%;
   margin-top: 2rem;
+
+  @media (max-width: $min-tablet) {
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
 }
 
 .row {

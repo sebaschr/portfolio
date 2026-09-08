@@ -2,16 +2,21 @@
 
 .scroll-zoom-panel {
   position: relative;
+  // vh fallback first; dvh (dynamic viewport height) overrides it where
+  // supported so mobile Safari's collapsing address bar doesn't reflow
+  // this mid-scroll and throw off the sticky math.
   height: calc(100vh + var(--pin-extra, 60vh));
+  height: calc(100dvh + var(--pin-extra, 60vh));
 }
 
 .scroll-zoom-panel-sticky {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
-  will-change: transform, opacity;
+  will-change: transform;
 }
 
 // Let the hero fill the full pinned viewport height instead of its own
@@ -32,6 +37,5 @@
     height: auto;
     min-height: 100vh;
     transform: none !important;
-    opacity: 1 !important;
   }
 }

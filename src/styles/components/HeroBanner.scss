@@ -51,6 +51,12 @@
     width: 90%;
     margin: auto;
     padding: 4rem 0;
+
+    @media (max-width: $min-tablet) {
+      width: 100%;
+      padding: 4rem 24px;
+      box-sizing: border-box;
+    }
   }
 
   &-subtitle {
@@ -59,18 +65,21 @@
     text-transform: uppercase;
     opacity: 0.8;
     margin-bottom: 0.5rem;
+    text-shadow: 0 2px 14px rgba($black, 0.85);
   }
 
   &-title {
     font-size: clamp(2.5rem, 6vw, 5.5rem);
     line-height: clamp(2.5rem, 5.5vw, 5rem);
     font-weight: 900;
+    text-shadow: 0 2px 18px rgba($black, 0.85);
   }
 
   &-description {
     font-size: 1.1rem;
     margin-top: 1rem;
     max-width: 40rem;
+    text-shadow: 0 2px 14px rgba($black, 0.85);
   }
 
   &-cta {

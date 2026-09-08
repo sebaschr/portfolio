@@ -24,7 +24,7 @@ const randomWalkers = (count: number): Walker[] =>
     const size = 18 + Math.random() * 34;
     return {
       id,
-      top: 45 + Math.random() * 45,
+      top: 66 + Math.random() * 28,
       size,
       duration: 34 - size / 3 + Math.random() * 10,
       delay: -Math.random() * 40,
