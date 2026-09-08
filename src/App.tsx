@@ -10,6 +10,12 @@ import {
   ContactModal,
   ContactModalProvider,
   FloatingActions,
+  RestaurantLayout,
+  RestaurantHome,
+  RestaurantMenu,
+  RestaurantOrder,
+  RestaurantAbout,
+  RestaurantReservations,
 } from './components';
 import { LanguageProvider } from './i18n/LanguageContext';
 
@@ -24,6 +30,13 @@ const App: React.FC = () => {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/experience" element={<ExperiencePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/lab/restaurant" element={<RestaurantLayout />}>
+              <Route index element={<RestaurantHome />} />
+              <Route path="menu" element={<RestaurantMenu />} />
+              <Route path="order" element={<RestaurantOrder />} />
+              <Route path="about" element={<RestaurantAbout />} />
+              <Route path="reservations" element={<RestaurantReservations />} />
+            </Route>
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <ContactModal />

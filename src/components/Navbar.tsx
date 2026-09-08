@@ -45,6 +45,7 @@ export const Navbar: React.FC = () => {
                     <NavLink to="/projects" className={navLinkClass}>{t.nav.projects}</NavLink>
                     <NavLink to="/experience" className={navLinkClass}>{t.nav.experience}</NavLink>
                     <NavLink to="/about" className={navLinkClass}>{t.nav.about}</NavLink>
+                    <NavLink to="/lab/restaurant" className={navLinkClass}>{t.nav.demo}</NavLink>
                 </div>
 
                 <div className="nav-actions">

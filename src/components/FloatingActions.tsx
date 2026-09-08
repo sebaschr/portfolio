@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import { useLocation } from 'react-router-dom';
 import { useContactModal } from './ContactModalContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { strings } from '../i18n/strings';
@@ -10,12 +11,18 @@ export const FloatingActions: React.FC = () => {
   const [open, setOpen] = useState(false);
   const { open: openContact } = useContactModal();
   const { language } = useLanguage();
+  const { pathname } = useLocation();
   const t = strings[language].fab;
 
   const handleContact = () => {
     openContact();
     setOpen(false);
   };
+
+  // The nested restaurant demo has its own header nav (which this fixed
+  // top-right button was overlapping) and its own AI concierge widget as
+  // the contact-equivalent, so skip rendering rojomasrojo's own FAB there.
+  if (pathname.startsWith('/lab/restaurant')) return null;
 
   return (
     <div className={clsx('fab', { 'fab--open': open })}>

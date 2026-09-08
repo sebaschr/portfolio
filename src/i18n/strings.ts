@@ -6,6 +6,7 @@ type Dict = {
     projects: string;
     experience: string;
     about: string;
+    demo: string;
     contact: string;
   };
   contact: {
@@ -45,6 +46,7 @@ export const strings: Record<Language, Dict> = {
       projects: 'Proyectos',
       experience: 'Experiencia',
       about: 'Nosotros',
+      demo: 'Demo',
       contact: 'Contacto',
     },
     contact: {
@@ -82,6 +84,7 @@ export const strings: Record<Language, Dict> = {
       projects: 'Projects',
       experience: 'Experience',
       about: 'About',
+      demo: 'Demo',
       contact: 'Contact',
     },
     contact: {

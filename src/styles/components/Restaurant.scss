@@ -1,0 +1,796 @@
+@use '../main' as *;
+@use './RestaurantVars.scss' as *;
+
+// ---- Shell ----
+.restaurant-app {
+  background-color: $rest-dark;
+  color: $rest-cream;
+  min-height: 100vh;
+}
+
+.restaurant-disclaimer {
+  background-color: $rest-darker;
+  color: rgba($rest-cream, 0.75);
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  line-height: 1.4;
+}
+
+.restaurant-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 24px;
+  border-bottom: 1px solid rgba($rest-cream, 0.15);
+}
+
+.restaurant-logo {
+  color: $rest-cream;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.restaurant-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.restaurant-nav-link {
+  position: relative;
+  color: rgba($rest-cream, 0.65);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    color: $rest-cream;
+  }
+
+  &--active {
+    color: $rest-gold;
+    border-bottom-color: $rest-gold;
+  }
+}
+
+.restaurant-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.3rem;
+  margin-left: 0.4rem;
+  background-color: $rest-red;
+  color: $rest-cream;
+  border-radius: 999px;
+  font-size: 0.65rem;
+}
+
+// ---- Hero ----
+.rest-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 24px 5rem;
+  text-align: center;
+}
+
+.rest-hero-dots {
+  inset: 0;
+  color: rgba($rest-gold, 0.14);
+}
+
+.rest-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.rest-eyebrow {
+  color: $rest-gold;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.rest-hero-title {
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+.rest-hero-tagline {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+.rest-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.rest-btn {
+  display: inline-block;
+  padding: 0.9rem 1.9rem;
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  font: inherit;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  &--primary {
+    background-color: $rest-gold;
+    color: $rest-darker;
+  }
+
+  &--ghost {
+    background-color: transparent;
+    border-color: rgba($rest-cream, 0.4);
+    color: $rest-cream;
+  }
+}
+
+// ---- Generic section ----
+.rest-section {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 4rem 24px 5rem;
+}
+
+.rest-section-title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.rest-section-lead {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  max-width: 36rem;
+  margin-bottom: 2.5rem;
+}
+
+.rest-category-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: $rest-gold;
+  margin-bottom: 0.25rem;
+}
+
+// ---- Featured grid (home) ----
+.rest-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: $min-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.rest-featured-tile {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 2px solid rgba($rest-cream, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.rest-featured-name {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+}
+
+.rest-featured-price {
+  // Cream, not gold: gold-on-olive (the "grain" tile variant) fails contrast.
+  color: $rest-cream;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+// ---- Shared abstract "photo" swatch variants (restaurant palette) ----
+.rest-featured-tile--dots,
+.rest-menu-item-swatch--dots,
+.item-modal-image--dots {
+  background-color: $rest-darker;
+  background-image: radial-gradient(rgba($rest-gold, 0.4) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+.rest-featured-tile--gradient,
+.rest-menu-item-swatch--gradient,
+.item-modal-image--gradient {
+  background: radial-gradient(120% 100% at 30% 20%, $rest-gold 0%, $rest-red 55%, $rest-darker 100%);
+}
+
+.rest-featured-tile--grain,
+.rest-menu-item-swatch--grain,
+.item-modal-image--grain {
+  background-color: $rest-olive;
+}
+
+.rest-featured-tile--stripes,
+.rest-menu-item-swatch--stripes,
+.item-modal-image--stripes {
+  background: repeating-linear-gradient(135deg, $rest-red 0 10px, $rest-darker 10px 20px);
+}
+
+.rest-featured-tile--radial,
+.rest-menu-item-swatch--radial,
+.item-modal-image--radial {
+  background: radial-gradient(circle at 50% 50%, $rest-gold 0%, $rest-olive 60%, $rest-darker 100%);
+}
+
+// ---- Menu ----
+.rest-menu-category {
+  margin-bottom: 3rem;
+}
+
+.rest-menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.rest-menu-item {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.rest-menu-item-open {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba($rest-cream, 0.04);
+  border: 1px solid rgba($rest-cream, 0.15);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    background-color: rgba($rest-cream, 0.08);
+    border-color: rgba($rest-gold, 0.5);
+  }
+}
+
+.rest-menu-item-swatch {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 6px;
+}
+
+.rest-menu-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.rest-menu-item-name {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.rest-menu-item-description {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.rest-menu-item-price {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: $rest-gold;
+}
+
+.rest-menu-item-add {
+  flex-shrink: 0;
+  width: 2.75rem;
+  border: none;
+  border-radius: 8px;
+  background-color: $rest-gold;
+  color: $rest-darker;
+  font-size: 1.25rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+// ---- Item modal, with a handful of randomized entrance transitions ----
+.item-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba($rest-darker, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.item-modal {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: $rest-dark;
+  border: 2px solid rgba($rest-cream, 0.2);
+  border-radius: 16px;
+  perspective: 1000px;
+}
+
+.item-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba($rest-darker, 0.6);
+  color: $rest-cream;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.item-modal-image {
+  width: 100%;
+  height: 14rem;
+  border-radius: 14px 14px 0 0;
+}
+
+.item-modal-body {
+  padding: 1.5rem;
+}
+
+.item-modal-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.item-modal-description {
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.item-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-modal-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: $rest-gold;
+}
+
+.item-modal-add {
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background-color: $rest-gold;
+  color: $rest-darker;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.item-modal--zoom {
+  animation: itemModalZoom 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.item-modal--slide-up {
+  animation: itemModalSlideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.item-modal--slide-side {
+  animation: itemModalSlideSide 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.item-modal--flip {
+  animation: itemModalFlip 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.item-modal--blur {
+  animation: itemModalBlur 0.5s ease-out both;
+}
+
+@keyframes itemModalZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes itemModalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(70px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes itemModalSlideSide {
+  from {
+    opacity: 0;
+    transform: translateX(-90px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes itemModalFlip {
+  from {
+    opacity: 0;
+    transform: rotateY(85deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
+
+@keyframes itemModalBlur {
+  from {
+    opacity: 0;
+    filter: blur(18px);
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item-modal {
+    animation: none !important;
+  }
+}
+
+// ---- Order page ----
+.rest-order-empty {
+  opacity: 0.75;
+}
+
+.rest-order-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.rest-order-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background-color: rgba($rest-cream, 0.04);
+  border: 1px solid rgba($rest-cream, 0.15);
+  border-radius: 8px;
+}
+
+.rest-order-line-name {
+  flex: 1;
+  font-weight: 700;
+}
+
+.rest-order-line-qty {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  button {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 1px solid rgba($rest-cream, 0.3);
+    background: none;
+    color: $rest-cream;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+}
+
+.rest-order-line-price {
+  min-width: 4rem;
+  text-align: right;
+  color: $rest-gold;
+  font-weight: 700;
+}
+
+.rest-order-summary {
+  max-width: 24rem;
+  padding: 1.5rem;
+  background-color: rgba($rest-cream, 0.04);
+  border: 1px solid rgba($rest-cream, 0.15);
+  border-radius: 12px;
+}
+
+.rest-order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  opacity: 0.85;
+
+  &--total {
+    opacity: 1;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: $rest-gold;
+    border-top: 1px solid rgba($rest-cream, 0.2);
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+  }
+}
+
+.rest-order-summary .rest-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  text-align: center;
+}
+
+// ---- About page ----
+.rest-about-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.rest-about-text {
+  opacity: 0.85;
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+// ---- Reservations ----
+.rest-reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 28rem;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+
+  input {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: none;
+    padding: 0.75rem;
+    border: 1px solid rgba($rest-cream, 0.3);
+    border-radius: 8px;
+    background-color: rgba($rest-cream, 0.05);
+    color: $rest-cream;
+    color-scheme: dark;
+
+    &:focus {
+      outline: 2px solid $rest-gold;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.rest-reservation-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  label {
+    flex: 1;
+    min-width: 8rem;
+  }
+}
+
+.rest-reservation-success {
+  font-size: 1.1rem;
+  max-width: 28rem;
+}
+
+// ---- AI concierge widget ----
+.rest-agent {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.rest-agent-toggle {
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background-color: $rest-gold;
+  color: $rest-darker;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba($rest-darker, 0.5);
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.rest-agent-panel {
+  width: min(22rem, 85vw);
+  max-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $rest-dark;
+  border: 1px solid rgba($rest-cream, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba($rest-darker, 0.6);
+  animation: itemModalSlideUp 0.3s ease-out both;
+}
+
+.rest-agent-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-height: 16rem;
+}
+
+.rest-agent-message {
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 90%;
+
+  &--agent {
+    background-color: rgba($rest-gold, 0.15);
+    align-self: flex-start;
+  }
+
+  &--user {
+    background-color: rgba($rest-cream, 0.1);
+    align-self: flex-end;
+  }
+}
+
+.rest-agent-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1rem 0.75rem;
+}
+
+.rest-agent-prompt {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba($rest-cream, 0.25);
+  background: none;
+  color: $rest-cream;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: $rest-gold;
+    color: $rest-gold;
+  }
+}
+
+.rest-agent-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgba($rest-cream, 0.15);
+
+  input {
+    flex: 1;
+    font-family: inherit;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid rgba($rest-cream, 0.25);
+    background-color: rgba($rest-cream, 0.05);
+    color: $rest-cream;
+    color-scheme: dark;
+
+    &:focus {
+      outline: 2px solid $rest-gold;
+      outline-offset: 1px;
+    }
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: $rest-gold;
+    color: $rest-darker;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+}
