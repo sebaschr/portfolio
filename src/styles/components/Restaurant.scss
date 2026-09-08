@@ -339,10 +339,311 @@
   font-size: 1.25rem;
   font-weight: 900;
   cursor: pointer;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.15s ease;
 
   &:hover {
     opacity: 0.85;
+  }
+
+  &:active {
+    transform: scale(0.88);
+  }
+
+  &--pulse {
+    animation: restAddPulse 0.45s ease-out;
+  }
+}
+
+// Scale only (no rotation): this button stretches tall to fill its menu
+// row, so scale + rotate together made it balloon into a distorted diagonal
+// shape that bled into neighboring rows on narrow screens.
+@keyframes restAddPulse {
+  0% {
+    transform: scale(1);
+    background-color: $rest-gold;
+  }
+  35% {
+    transform: scale(1.18);
+    background-color: $rest-olive;
+  }
+  100% {
+    transform: scale(1);
+    background-color: $rest-gold;
+  }
+}
+
+// ---- "Added to order" toast ----
+.rest-toast {
+  position: fixed;
+  top: 6rem;
+  left: 50%;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background-color: $rest-darker;
+  color: $rest-cream;
+  border: 1px solid rgba($rest-gold, 0.5);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba($rest-darker, 0.6);
+  font-weight: 600;
+  font-size: 0.9rem;
+  pointer-events: none;
+  animation: restToastInOut 2.4s ease-in-out forwards;
+}
+
+.rest-toast-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background-color: $rest-gold;
+  color: $rest-darker;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+@keyframes restToastInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -14px);
+  }
+  8% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  88% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -14px);
+  }
+}
+
+// ---- Cart badge pop ----
+.restaurant-nav-badge {
+  animation: restBadgePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes restBadgePop {
+  0% {
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rest-toast,
+  .restaurant-nav-badge,
+  .rest-menu-item-add--pulse {
+    animation: none !important;
+  }
+}
+
+// ---- View toggle (list / book) ----
+.rest-view-toggle {
+  display: inline-flex;
+  gap: 0.3rem;
+  padding: 0.3rem;
+  background-color: rgba($rest-cream, 0.06);
+  border: 1px solid rgba($rest-cream, 0.15);
+  border-radius: 999px;
+  margin-bottom: 2.5rem;
+}
+
+.rest-view-toggle-btn {
+  padding: 0.5rem 1.1rem;
+  border: none;
+  border-radius: 999px;
+  background: none;
+  color: rgba($rest-cream, 0.65);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+
+  &--active {
+    background-color: $rest-gold;
+    color: $rest-darker;
+  }
+}
+
+// ---- Book view: one category per "page", flipped via a slide+rotate swap
+// on the newly-mounted page (React key remount triggers the animation) ----
+.rest-book {
+  max-width: 32rem;
+}
+
+.rest-book-page {
+  position: relative;
+  background-color: $rest-cream;
+  color: $rest-darker;
+  border-radius: 8px;
+  padding: 2rem;
+  min-height: 22rem;
+  box-shadow: 0 16px 34px rgba($rest-darker, 0.55);
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+
+  &--next {
+    animation-name: restBookPageInNext;
+  }
+
+  &--prev {
+    animation-name: restBookPageInPrev;
+  }
+}
+
+@keyframes restBookPageInNext {
+  from {
+    opacity: 0;
+    transform: translateX(60px) rotate(5deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0) scale(1);
+  }
+}
+
+@keyframes restBookPageInPrev {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) rotate(-5deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rest-book-page {
+    animation: none !important;
+  }
+}
+
+.rest-book-page-number {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $rest-red;
+  margin-bottom: 0.5rem;
+}
+
+.rest-book-category-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba($rest-darker, 0.15);
+}
+
+.rest-book-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.rest-book-item-open {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.rest-book-item-name {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.rest-book-item-description {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.15rem;
+}
+
+.rest-book-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.rest-book-item-price {
+  font-weight: 700;
+  color: $rest-red;
+}
+
+.rest-book-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.rest-book-nav-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba($rest-cream, 0.3);
+  background: none;
+  color: $rest-cream;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    cursor: default;
+  }
+}
+
+.rest-book-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rest-book-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba($rest-cream, 0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+
+  &--active {
+    background-color: $rest-gold;
+    transform: scale(1.3);
   }
 }
 

@@ -200,6 +200,15 @@ export const orderLabels = {
   add: { en: 'Add', es: 'Agregar' } satisfies Localized,
   remove: { en: 'Remove', es: 'Quitar' } satisfies Localized,
   clear: { en: 'Clear order', es: 'Vaciar pedido' } satisfies Localized,
+  addedSuffix: { en: 'added to your order', es: 'agregado al pedido' } satisfies Localized,
+};
+
+export const menuViewLabels = {
+  list: { en: 'List', es: 'Lista' } satisfies Localized,
+  book: { en: 'Book', es: 'Libro' } satisfies Localized,
+  prevPage: { en: 'Previous page', es: 'Página anterior' } satisfies Localized,
+  nextPage: { en: 'Next page', es: 'Página siguiente' } satisfies Localized,
+  pageOf: { en: 'Page', es: 'Página' } satisfies Localized,
 };
 
 // Suggested prompts + canned replies for the AI concierge mockup. No real

@@ -1,5 +1,8 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { menuItems, taxRates } from '../data/restaurant';
+import { useLanguage } from '../i18n/LanguageContext';
+
+type Toast = { id: number; name: string };
 
 type OrderContextValue = {
   quantities: Record<string, number>;
@@ -11,16 +14,32 @@ type OrderContextValue = {
   service: number;
   vat: number;
   total: number;
+  toast: Toast | null;
 };
 
 const RestaurantOrderContext = createContext<OrderContextValue | undefined>(undefined);
 
-export const RestaurantOrderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [quantities, setQuantities] = useState<Record<string, number>>({});
+const TOAST_DURATION = 2400;
 
-  const addItem = useCallback((id: string) => {
-    setQuantities((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
-  }, []);
+export const RestaurantOrderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { language } = useLanguage();
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [toast, setToast] = useState<Toast | null>(null);
+
+  const addItem = useCallback(
+    (id: string) => {
+      setQuantities((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
+      const item = menuItems.find((m) => m.id === id);
+      if (item) setToast({ id: Date.now(), name: item.name[language] });
+    },
+    [language]
+  );
+
+  useEffect(() => {
+    if (!toast) return;
+    const timer = setTimeout(() => setToast(null), TOAST_DURATION);
+    return () => clearTimeout(timer);
+  }, [toast]);
 
   const removeItem = useCallback((id: string) => {
     setQuantities((prev) => {
@@ -63,6 +82,7 @@ export const RestaurantOrderProvider: React.FC<{ children: React.ReactNode }> = 
     service,
     vat,
     total,
+    toast,
   };
 
   return <RestaurantOrderContext.Provider value={value}>{children}</RestaurantOrderContext.Provider>;
