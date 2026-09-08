@@ -48,14 +48,17 @@ export const ProjectsPage = () => {
           <Reveal delay={200}>
             <h2 className="section-label">{projectsLabels.whatItDoes[language]}</h2>
             <p className="page-hero-intro">{projectsLabels.whatItDoesIntro[language]}</p>
-            <ul className="feature-grid">
-              {featuredProject.bullets[language].map((bullet, i) => (
-                <li key={i} className="feature-grid-item">
-                  {bullet}
-                </li>
-              ))}
-            </ul>
           </Reveal>
+
+          <ul className="feature-grid">
+            {featuredProject.bullets[language].map((bullet, i) => (
+              <li key={i}>
+                <Reveal delay={240 + i * 60} className="feature-grid-item">
+                  {bullet}
+                </Reveal>
+              </li>
+            ))}
+          </ul>
         </PageWrapper>
       </section>
 

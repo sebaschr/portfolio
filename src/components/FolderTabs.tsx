@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import { Reveal } from './Reveal';
 import { useLanguage } from '../i18n/LanguageContext';
 import type { TimelineEntry } from '../data/experience';
 
@@ -47,7 +48,9 @@ export const FolderTabs: React.FC<FolderTabsProps> = ({ entries }) => {
 
           <ul className="folder-panel-bullets">
             {entry.bullets[language].map((bullet, i) => (
-              <li key={i}>{bullet}</li>
+              <li key={i}>
+                <Reveal delay={i * 60}>{bullet}</Reveal>
+              </li>
             ))}
           </ul>
         </div>

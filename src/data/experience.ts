@@ -31,7 +31,7 @@ export const timeline: TimelineEntry[] = [
         'A 5-step batch registration wizard catches duplicate entries against a CSV automatically.',
         'Bilingual from day one, built around a centralized strings hook.',
         'A 1600-line component that used to do everything is now 8 focused modules.',
-        'Built with Cursor, Claude, and subagents handling scaffolding, refactors, and test generation.',
+        'Deployed and seeded on AWS, with its own security audits along the way.',
       ],
       es: [
         'Un SaaS multi-tenant que mantiene empresas, contratistas y sitios de trabajo en un solo lugar.',
@@ -41,7 +41,7 @@ export const timeline: TimelineEntry[] = [
         'Un wizard de registro batch en 5 pasos detecta duplicados contra un CSV automáticamente.',
         'Bilingüe desde el día uno, construido alrededor de un hook centralizado de strings.',
         'Un componente de 1600 líneas que antes hacía de todo ahora son 8 módulos enfocados.',
-        'Construido con Cursor, Claude y subagentes a cargo del scaffolding, los refactors y la generación de tests.',
+        'Desplegado y poblado en AWS, con sus propias auditorías de seguridad en el camino.',
       ],
     },
   },
