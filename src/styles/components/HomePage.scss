@@ -45,12 +45,17 @@
 }
 
 .collection-tile-label {
-  font-size: clamp(1.35rem, 3vw, 2.25rem);
+  display: block;
+  font-size: clamp(1.05rem, 3vw, 2.25rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.01em;
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 0.5rem;
+  // Long single words (MANTENIMIENTO / MAINTENANCE) have no natural break
+  // point and were overflowing the tile's overflow:hidden box on mobile.
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .collection-tile-caption {
@@ -92,6 +97,111 @@
     width: 5.5rem;
     height: 5.5rem;
   }
+}
+
+// ---- Manifesto collage grid (text cells interlocked with abstract "photo"
+// cells, star doodles crossing the seams) ----
+.manifesto-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, minmax(6.5rem, auto));
+  gap: 0;
+  margin: 2rem 0 5rem;
+  border: 3px solid $dark-red;
+  grid-template-areas:
+    'text1 text1 image1'
+    'image2 image3 image1'
+    'image4 text2 text2';
+
+  @media (min-width: $min-tablet) {
+    grid-template-rows: repeat(3, 11rem);
+  }
+}
+
+.manifesto-cell {
+  position: relative;
+  border: 1px solid rgba($cream, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.manifesto-cell--text1 {
+  grid-area: text1;
+  background-color: $dark-red;
+  color: $cream;
+}
+
+.manifesto-cell--text2 {
+  grid-area: text2;
+  background-color: $dark-red;
+  color: $cream;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.manifesto-text {
+  font-size: clamp(1.6rem, 3.6vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.manifesto-cell--image1 {
+  grid-area: image1;
+  background-color: $primary;
+  background-image: radial-gradient(rgba($cream, 0.3) 1.6px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+.manifesto-cell--image2 {
+  grid-area: image2;
+  background: radial-gradient(140% 120% at 70% 30%, $secondary-red 0%, $dark-red 70%);
+}
+
+.manifesto-cell--image3 {
+  grid-area: image3;
+  background-color: $dark-red;
+}
+
+.manifesto-cell--image4 {
+  grid-area: image4;
+  background: repeating-linear-gradient(135deg, $dark-red 0 10px, $primary 10px 20px);
+}
+
+.manifesto-star {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: $cream;
+  pointer-events: none;
+  z-index: 3;
+
+  @media (min-width: $min-desktop) {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.manifesto-star--1 {
+  top: 28%;
+  left: 63%;
+  transform: rotate(-12deg);
+}
+
+.manifesto-star--2 {
+  top: 48%;
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(18deg);
+}
+
+.manifesto-star--3 {
+  top: 80%;
+  left: 26%;
+  transform: translate(-50%, -50%) rotate(-6deg);
 }
 
 // ---- Red banner (full-height scroll-zoom panel) ----

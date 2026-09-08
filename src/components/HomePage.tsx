@@ -4,7 +4,7 @@ import { PageWrapper, HeroBanner, Marquee, Reveal, ScrollZoomPanel, PixelCrowd }
 import { useContactModal } from './ContactModalContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { strings } from '../i18n/strings';
-import { homeIntro, collectionTiles, redBanner, previewSection } from '../data/home';
+import { homeIntro, collectionTiles, manifesto, redBanner, previewSection } from '../data/home';
 
 export const HomePage = () => {
   const { open } = useContactModal();
@@ -48,6 +48,26 @@ export const HomePage = () => {
           ))}
           <DoodleStar className="collection-doodle" />
         </div>
+      </PageWrapper>
+
+      <PageWrapper>
+        <Reveal>
+          <div className="manifesto-grid">
+            <div className="manifesto-cell manifesto-cell--text1">
+              <p className="manifesto-text">{manifesto.line1[language]}</p>
+            </div>
+            <div className="manifesto-cell manifesto-cell--image1" />
+            <div className="manifesto-cell manifesto-cell--image2" />
+            <div className="manifesto-cell manifesto-cell--image3 grain-overlay" />
+            <div className="manifesto-cell manifesto-cell--image4" />
+            <div className="manifesto-cell manifesto-cell--text2">
+              <p className="manifesto-text">{manifesto.line2[language]}</p>
+            </div>
+            <DoodleStar className="manifesto-star manifesto-star--1" />
+            <DoodleStar className="manifesto-star manifesto-star--2" />
+            <DoodleStar className="manifesto-star manifesto-star--3" />
+          </div>
+        </Reveal>
       </PageWrapper>
 
       <ScrollZoomPanel pinVh={30} className="red-banner-panel">

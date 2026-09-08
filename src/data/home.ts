@@ -26,21 +26,29 @@ export const collectionTiles: CollectionTile[] = [
     variant: 'gradient',
   },
   {
-    id: 'ship',
-    label: { en: 'SHIP', es: 'LANZAR' },
-    caption: { en: 'Production, not a prototype folder.', es: 'Producción, no una carpeta de prototipos.' },
+    id: 'seo',
+    label: { en: 'SEO', es: 'SEO' },
+    caption: {
+      en: 'Meta tags, structured data, sites Google actually finds.',
+      es: 'Meta tags, datos estructurados, sitios que Google sí encuentra.',
+    },
     variant: 'grain',
   },
   {
-    id: 'ai',
-    label: { en: 'AI', es: 'IA' },
+    id: 'maintenance',
+    label: { en: 'MAINTENANCE', es: 'MANTENIMIENTO' },
     caption: {
-      en: 'Cursor and Claude, every day. Built into the real workflow.',
-      es: 'Cursor y Claude, todos los días. Parte real del flujo de trabajo.',
+      en: 'Updates, fixes, a site that keeps working.',
+      es: 'Actualizaciones, fixes, un sitio que sigue funcionando.',
     },
     variant: 'stripes',
   },
 ];
+
+export const manifesto = {
+  line1: { en: "The details aren't decoration,", es: 'Los detalles no son decoración,' } satisfies Localized,
+  line2: { en: "they're the product.", es: 'son el producto.' } satisfies Localized,
+};
 
 export const redBanner = {
   title: {

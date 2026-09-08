@@ -63,7 +63,7 @@ export const strings: Record<Language, Dict> = {
       whatsapp: 'WhatsApp',
     },
     home: {
-      heroTitle: 'CÓDIGO ROJO.',
+      heroTitle: 'ROJO+ROJO',
       heroSubtitle: 'rojomasrojo · Estudio de Diseño y Desarrollo Digital',
       heroCta: 'Hablemos',
       marquee: 'DISEÑO ✦ CÓDIGO ✦ LANZAMIENTO ✦ REPITE ✦',
@@ -100,7 +100,7 @@ export const strings: Record<Language, Dict> = {
       whatsapp: 'WhatsApp',
     },
     home: {
-      heroTitle: 'CODE RED.',
+      heroTitle: 'ROJO+ROJO',
       heroSubtitle: 'rojomasrojo · Digital Design & Development Studio',
       heroCta: 'Talk To Us',
       marquee: 'DESIGN ✦ CODE ✦ LAUNCH ✦ REPEAT ✦',
